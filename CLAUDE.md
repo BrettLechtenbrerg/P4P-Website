@@ -56,6 +56,7 @@
 │   ├── globals.css        # Global styles + design system
 │   ├── about/page.tsx     # About Us page
 │   ├── team/page.tsx      # Coalition Team (Chamber-style)
+│   ├── members/page.tsx   # Coalition Members Directory (like MACC)
 │   ├── events/page.tsx    # Community Events
 │   ├── contact/page.tsx   # Contact form
 │   └── get-involved/page.tsx  # Volunteer/Donate/Partner
@@ -123,21 +124,23 @@ git add -A && git commit -m "message" && git push
 ## What's Built vs What's Needed
 
 ### ✅ Complete
-- [x] All 6 pages with structure and styling
+- [x] All 7 pages with structure and styling
 - [x] Navigation with mobile responsive menu
 - [x] Footer with social links
 - [x] Partner organizations section
+- [x] Members directory page (like MACC) with search/filter
 - [x] Glassmorphic design system
 - [x] Framer Motion animations
 - [x] GitHub repo connected
 - [x] Vercel deployment working
 
 ### ⏳ Needs Real Content (Placeholders Currently)
+- [ ] Members page: Add real coalition member organizations from screenshots
 - [ ] Team page: Replace placeholder officers/members with real P4P team
 - [ ] About page: Verify/update mission statement and focus areas
 - [ ] Events page: Replace sample events with real P4P events
 - [ ] Hero section: Could add background image
-- [ ] Partner logos: Add actual partner organization logos
+- [ ] Partner/Member logos: Add actual organization logos
 - [ ] Contact form: Connect to backend (currently shows success message)
 - [ ] Social media links: Update to real P4P social profiles
 
@@ -188,3 +191,11 @@ This avoids issues with standard uploads and ensures proper builds.
 - Downloaded logo from current GoHighLevel site
 - Could not scrape Team/About pages (403 blocked) - used placeholders
 - Deployed to Vercel successfully
+
+### February 11, 2026 - Session 2: Members Directory
+- Added Coalition Members directory page (`/members`)
+- Modeled after MACC directory with search, filters, grid/list view
+- Member cards: image, name, category, description, address, phone, website
+- Tier system: Founding Partner, Partner, Supporter
+- 9 placeholder member organizations (ready for real data from screenshots)
+- Updated Navigation and Footer to include Members link
