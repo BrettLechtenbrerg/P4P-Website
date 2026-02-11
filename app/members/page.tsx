@@ -180,7 +180,7 @@ export default function MembersPage() {
           {/* Search and Filters */}
           <FadeIn direction="up">
             <div className="glass-card p-6 mb-8">
-              <div className="flex flex-col lg:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 {/* Search Input */}
                 <div className="flex-1 relative">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
@@ -193,34 +193,38 @@ export default function MembersPage() {
                   />
                 </div>
 
-                {/* Category Filter */}
-                <div className="relative">
-                  <Filter className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
-                  <select
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="input-glass select-glass pl-12 w-full lg:w-64"
-                  >
-                    {allCategories.map((category) => (
-                      <option key={category} value={category}>{category}</option>
-                    ))}
-                  </select>
-                </div>
+                <div className="flex gap-4">
+                  {/* Category Filter */}
+                  <div className="relative flex-1 sm:flex-none">
+                    <Filter className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                    <select
+                      value={selectedCategory}
+                      onChange={(e) => setSelectedCategory(e.target.value)}
+                      className="input-glass select-glass pl-12 w-full sm:w-52 lg:w-64"
+                    >
+                      {allCategories.map((category) => (
+                        <option key={category} value={category}>{category}</option>
+                      ))}
+                    </select>
+                  </div>
 
-                {/* View Toggle */}
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => setViewMode('grid')}
-                    className={`p-3 rounded-xl transition-colors ${viewMode === 'grid' ? 'bg-orange-500/30 text-white' : 'bg-white/5 text-white/60 hover:bg-white/10'}`}
-                  >
-                    <Grid className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={() => setViewMode('list')}
-                    className={`p-3 rounded-xl transition-colors ${viewMode === 'list' ? 'bg-orange-500/30 text-white' : 'bg-white/5 text-white/60 hover:bg-white/10'}`}
-                  >
-                    <List className="w-5 h-5" />
-                  </button>
+                  {/* View Toggle */}
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setViewMode('grid')}
+                      className={`p-3 rounded-xl transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center ${viewMode === 'grid' ? 'bg-orange-500/30 text-white' : 'bg-white/5 text-white/60 hover:bg-white/10'}`}
+                      aria-label="Grid view"
+                    >
+                      <Grid className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={() => setViewMode('list')}
+                      className={`p-3 rounded-xl transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center ${viewMode === 'list' ? 'bg-orange-500/30 text-white' : 'bg-white/5 text-white/60 hover:bg-white/10'}`}
+                      aria-label="List view"
+                    >
+                      <List className="w-5 h-5" />
+                    </button>
+                  </div>
                 </div>
               </div>
 

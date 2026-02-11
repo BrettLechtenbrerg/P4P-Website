@@ -80,12 +80,12 @@ export default function ContactPage() {
                   <p className="text-white/60 text-sm mb-4">
                     Stay connected with Murray Partners 4 Prevention on social media.
                   </p>
-                  <div className="flex gap-3">
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
                     {['Facebook', 'Instagram', 'Twitter', 'LinkedIn', 'YouTube'].map((platform) => (
                       <a
                         key={platform}
                         href="#"
-                        className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-sm"
+                        className="px-3 sm:px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-xs sm:text-sm whitespace-nowrap"
                       >
                         {platform}
                       </a>

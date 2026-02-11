@@ -203,7 +203,7 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="absolute right-0 top-0 bottom-0 w-80 glass-strong p-6 pt-24 overflow-y-auto"
+              className="absolute right-0 top-0 bottom-0 w-[85vw] max-w-sm glass-strong p-6 pt-24 overflow-y-auto"
             >
               <div className="space-y-2">
                 {navigationItems.map((item) => (
