@@ -3,17 +3,28 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Heart, Mail } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import FadeIn from './animations/FadeIn';
 import ScaleIn from './animations/ScaleIn';
 
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-
-      {/* Animated Orange Accent Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-orange-800/10" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero/p4p-hero.jpg"
+          alt="Murray Partners 4 Prevention Community"
+          fill
+          className="object-cover"
+          priority
+          unoptimized
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+        {/* Orange Accent Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-900/30 via-transparent to-orange-800/20" />
+      </div>
 
       {/* Animated Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
