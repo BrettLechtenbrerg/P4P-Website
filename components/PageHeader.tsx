@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 import FadeIn from './animations/FadeIn';
 
@@ -15,6 +16,7 @@ interface PageHeaderProps {
   title: string;
   description?: string;
   breadcrumbs?: Breadcrumb[];
+  backgroundImage?: string;
 }
 
 export default function PageHeader({
@@ -22,14 +24,32 @@ export default function PageHeader({
   title,
   description,
   breadcrumbs,
+  backgroundImage,
 }: PageHeaderProps) {
   return (
     <section className="relative w-full pt-32 pb-16 sm:pt-40 sm:pb-20 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
-      </div>
+      {/* Background Image (if provided) */}
+      {backgroundImage ? (
+        <div className="absolute inset-0">
+          <Image
+            src={backgroundImage}
+            alt={title}
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
+          {/* Orange Accent Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/30 via-transparent to-orange-800/20" />
+        </div>
+      ) : (
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+        </div>
+      )}
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         {/* Breadcrumbs */}

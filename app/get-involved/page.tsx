@@ -59,6 +59,7 @@ export default function GetInvolvedPage() {
         breadcrumbs={[
           { label: 'Get Involved' },
         ]}
+        backgroundImage="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80"
       />
 
       {/* Opportunities Section */}

@@ -72,6 +72,7 @@ export default function EventsPage() {
         breadcrumbs={[
           { label: 'Events' },
         ]}
+        backgroundImage="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=80"
       />
 
       {/* Upcoming Events */}

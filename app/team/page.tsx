@@ -99,6 +99,7 @@ export default function TeamPage() {
         breadcrumbs={[
           { label: 'Team' },
         ]}
+        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
       />
 
       {/* Coalition Officers */}

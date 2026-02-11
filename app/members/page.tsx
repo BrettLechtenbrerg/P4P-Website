@@ -167,6 +167,7 @@ export default function MembersPage() {
         breadcrumbs={[
           { label: 'Members' },
         ]}
+        backgroundImage="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=80"
       />
 
       <section className="relative py-16 overflow-hidden">

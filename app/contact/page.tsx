@@ -35,6 +35,7 @@ export default function ContactPage() {
         breadcrumbs={[
           { label: 'Contact' },
         ]}
+        backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80"
       />
 
       <section className="relative py-16 overflow-hidden">
