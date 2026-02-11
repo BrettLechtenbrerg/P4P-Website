@@ -1,0 +1,384 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MURRAY PARTNERS 4 PREVENTION - GLASSMORPHIC DESIGN SYSTEM
+   Color Scheme: Black / Orange / White
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ═══════════════════════════════════════════════════════════════════════════
+     P4P OFFICIAL BRAND COLORS
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Primary Colors */
+  --p4p-black: #1C1C1C;
+  --p4p-black-deep: #0F0F0F;
+  --p4p-orange: #F27A21;
+  --p4p-white: #FFFFFF;
+
+  /* Secondary Colors */
+  --p4p-orange-light: #F9A45A;
+  --p4p-orange-glow: #FCBE8A;
+  --p4p-charcoal: #2A2A2A;
+
+  /* Gradient Colors */
+  --orange-primary: #F27A21;
+  --orange-light: #F9A45A;
+  --orange-glow: #FCBE8A;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-strong: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  /* Animation Timings */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(242, 122, 33, 0.2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply antialiased font-open-sans;
+    background: linear-gradient(135deg, var(--p4p-black-deep) 0%, var(--p4p-black) 50%, var(--p4p-black-deep) 100%);
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-bold;
+  }
+
+  input, textarea, select {
+    font-size: 16px;
+  }
+
+  button, a {
+    touch-action: manipulation;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Aurora Background - Black/Orange Theme
+   ─────────────────────────────────────────────────────────────────────────────*/
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--p4p-black-deep) 0%, var(--p4p-black) 50%, var(--p4p-black-deep) 100%);
+}
+
+.aurora-bg::before,
+.aurora-bg::after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  animation: aurora 15s ease-in-out infinite;
+}
+
+.aurora-bg::before {
+  /* Orange glow - top left */
+  background: radial-gradient(ellipse at 30% 30%, rgba(242, 122, 33, 0.4) 0%, transparent 50%);
+  top: -25%;
+  left: -25%;
+}
+
+.aurora-bg::after {
+  /* Orange secondary glow - bottom right */
+  background: radial-gradient(ellipse at 70% 70%, rgba(249, 164, 90, 0.25) 0%, transparent 50%);
+  bottom: -25%;
+  right: -25%;
+  animation-delay: -7.5s;
+  animation-direction: reverse;
+}
+
+@keyframes aurora {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  33% { transform: translate(5%, -5%) rotate(5deg) scale(1.1); }
+  66% { transform: translate(-5%, 5%) rotate(-5deg) scale(0.95); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Glassmorphism Components
+   ─────────────────────────────────────────────────────────────────────────────*/
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-strong {
+    background: var(--glass-bg-strong);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-card {
+    @apply rounded-2xl p-6 sm:p-8;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s var(--ease-out-expo);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(242, 122, 33, 0.15);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, var(--p4p-orange-light) 0%, var(--p4p-orange) 100%);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(242, 122, 33, 0.4);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .btn-glow {
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-xl text-white transition-all duration-300 font-montserrat font-extrabold;
+    background: linear-gradient(135deg, var(--p4p-orange) 0%, #D66A1A 100%);
+    box-shadow: 0 4px 20px rgba(242, 122, 33, 0.3);
+  }
+
+  .btn-glow:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(242, 122, 33, 0.5);
+  }
+
+  /* Inputs */
+  .input-glass {
+    @apply w-full px-4 py-3 rounded-xl text-white placeholder-white/40 outline-none transition-all duration-300;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .input-glass:focus {
+    border-color: var(--p4p-orange-light);
+    box-shadow: 0 0 0 3px rgba(242, 122, 33, 0.3);
+  }
+
+  /* Feature Icons */
+  .feature-icon {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center mb-4;
+    background: linear-gradient(135deg, var(--p4p-orange-light) 0%, var(--p4p-orange) 100%);
+    box-shadow: 0 4px 20px rgba(242, 122, 33, 0.3);
+  }
+
+  /* Stats */
+  .stat-number {
+    @apply text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent text-center;
+  }
+
+  .stat-label {
+    @apply text-white/60 text-sm mt-1 text-center;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Utilities
+   ─────────────────────────────────────────────────────────────────────────────*/
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent;
+  }
+
+  .mesh-gradient {
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(242, 122, 33, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(249, 164, 90, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(252, 190, 138, 0.1) 0%, transparent 70%);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Select Styling
+   ─────────────────────────────────────────────────────────────────────────────*/
+.select-glass {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.4)'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5rem;
+  padding-right: 3rem;
+}
+
+.select-glass option {
+  background: var(--p4p-charcoal);
+  color: white;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Scrollbar
+   ─────────────────────────────────────────────────────────────────────────────*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--orange-light), var(--orange-primary));
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Responsive & Mobile Optimization
+   ─────────────────────────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  .glass-card {
+    @apply rounded-xl p-4;
+  }
+
+  .stat-number {
+    @apply text-3xl;
+  }
+
+  .btn-glow {
+    @apply px-6 py-3 text-sm;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    @apply px-4 py-2.5 text-sm;
+  }
+
+  /* Better touch targets */
+  .dropdown-item {
+    padding: 1rem;
+    min-height: 44px;
+  }
+
+  /* Prevent horizontal scroll */
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Better form spacing on mobile */
+  .input-glass {
+    @apply py-4;
+  }
+}
+
+@media (max-width: 640px) {
+  .glass-card {
+    @apply p-4;
+  }
+
+  /* Stack grids on small screens */
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Navigation Styles
+   ─────────────────────────────────────────────────────────────────────────────*/
+.nav-glass {
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.nav-link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(15, 15, 15, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  color: white;
+  background: rgba(242, 122, 33, 0.3);
+  padding-left: 1.25rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Footer Styles
+   ─────────────────────────────────────────────────────────────────────────────*/
+.footer-glass {
+  background: linear-gradient(180deg, rgba(15, 15, 15, 0.9) 0%, rgba(15, 15, 15, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Focus states */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--p4p-orange-light);
+  outline-offset: 2px;
+}
