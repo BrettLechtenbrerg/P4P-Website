@@ -3,12 +3,13 @@
 ## Project Overview
 
 **Project Name:** Murray Partners 4 Prevention (P4P) Coalition Website
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Created:** February 11, 2026
-**Status:** Initial Build Complete - Content Placeholders Need Real Data
+**Last Updated:** February 11, 2026
+**Status:** Core Build Complete - Ready for Real Content
 
 ### Quick Links
-- **Production URL:** https://p4p-website-6az6uzr9b-bretts-projects-3e254e58.vercel.app
+- **Production URL:** https://p4p-website-27god55vc-bretts-projects-3e254e58.vercel.app
 - **GitHub Repo:** https://github.com/BrettLechtenbrerg/P4P-Website
 - **Vercel Project:** https://vercel.com/bretts-projects-3e254e58/p4p-website
 - **Current P4P Site (GoHighLevel):** https://murrayp4p.com/
@@ -51,7 +52,7 @@
 ```
 📁 P4P-Website
 ├── app/
-│   ├── page.tsx           # Home page
+│   ├── page.tsx           # Home page (with hero image)
 │   ├── layout.tsx         # Root layout with Navigation
 │   ├── globals.css        # Global styles + design system
 │   ├── about/page.tsx     # About Us page
@@ -65,7 +66,7 @@
 ├── components/
 │   ├── Navigation.tsx     # Main nav with mobile menu
 │   ├── Footer.tsx         # Footer with links + social
-│   ├── Hero.tsx           # Home page hero section
+│   ├── Hero.tsx           # Home page hero section (with background image)
 │   ├── Partners.tsx       # Partner organizations grid
 │   ├── ContactCTA.tsx     # Contact call-to-action banner
 │   ├── PageHeader.tsx     # Reusable page header
@@ -75,7 +76,9 @@
 │       └── StaggerChildren.tsx
 ├── public/
 │   └── images/
-│       └── p4p-logo.png   # Downloaded from current site
+│       ├── p4p-logo.png   # Downloaded from current site
+│       └── hero/
+│           └── p4p-hero.jpg  # Hero background image
 └── config files (tailwind, tsconfig, next.config, etc.)
 ```
 
@@ -103,6 +106,7 @@ git add -A && git commit -m "message" && git push
 ## Design System
 
 ### Visual Features
+- **Hero Background:** Full-screen image with gradient overlays
 - **Aurora Background:** Animated orange glow effects
 - **Glassmorphism:** Backdrop blur cards with subtle borders
 - **Animations:** Framer Motion fade-in, scale, stagger effects
@@ -125,29 +129,30 @@ git add -A && git commit -m "message" && git push
 
 ## What's Built vs What's Needed
 
-### ✅ Complete
-- [x] All 9 pages with structure and styling (added Terms & Privacy)
+### ✅ Complete (v1.1.0)
+- [x] All 9 pages with structure and styling
+- [x] Hero section with background image (p4p-hero.jpg)
 - [x] Navigation with mobile responsive menu
 - [x] Footer with social links
 - [x] Partner organizations section
-- [x] Members directory page (like MACC) with search/filter
+- [x] Members directory page with search/filter
 - [x] Glassmorphic design system
 - [x] Framer Motion animations
+- [x] Terms & Conditions page
+- [x] Privacy Policy page
 - [x] GitHub repo connected
 - [x] Vercel deployment working
 
 ### ⏳ Needs Real Content (Placeholders Currently)
-- [ ] Members page: Add real coalition member organizations from screenshots
+- [ ] Members page: Add real coalition member organizations
 - [ ] Team page: Replace placeholder officers/members with real P4P team
 - [ ] About page: Verify/update mission statement and focus areas
 - [ ] Events page: Replace sample events with real P4P events
-- [ ] Hero section: Could add background image
 - [ ] Partner/Member logos: Add actual organization logos
 - [ ] Contact form: Connect to backend (currently shows success message)
 - [ ] Social media links: Update to real P4P social profiles
 
 ### 🚀 Future Enhancements
-- [ ] Add hero background image/video
 - [ ] News/blog section
 - [ ] Event calendar integration
 - [ ] Donation payment integration
@@ -161,8 +166,9 @@ git add -A && git commit -m "message" && git push
 This site was built to match the visual style of the **Murray Chamber of Commerce** website:
 
 - **MACC Production:** https://macc-website-2.vercel.app/
+- **MACC Reference:** https://web-seven-beta-31.vercel.app/
 - **MACC GitHub:** https://github.com/BrettLechtenbrerg/MACC-Website
-- **MACC Project:** `/Users/brettlechtenberg/Desktop/Claude Projects/MACC-Website/` (if exists)
+- **MACC Project:** `/Users/brettlechtenberg/Desktop/Claude Projects/MACC-Website/`
 
 ---
 
@@ -184,9 +190,9 @@ This avoids issues with standard uploads and ensures proper builds.
 
 ---
 
-## Session Notes
+## Session History
 
-### February 11, 2026 - Initial Build
+### February 11, 2026 - Session 1: Initial Build
 - Created complete website from scratch
 - Matched MACC website tech stack and visual design
 - Adapted color scheme from purple/orange to black/orange
@@ -199,13 +205,18 @@ This avoids issues with standard uploads and ensures proper builds.
 - Modeled after MACC directory with search, filters, grid/list view
 - Member cards: image, name, category, description, address, phone, website
 - Tier system: Founding Partner, Partner, Supporter
-- 9 placeholder member organizations (ready for real data from screenshots)
-- Updated Navigation and Footer to include Members link
+- 9 placeholder member organizations
 
 ### February 11, 2026 - Session 3: Legal Pages
 - Added Terms & Conditions page (`/terms`)
 - Added Privacy Policy page (`/privacy`)
 - Both pages effective January 1, 2026
-- Nonprofit coalition-specific language for Murray Partners 4 Prevention
-- Footer already had links to these pages - now functional
-- **Total Pages: 9** (Home, About, Team, Members, Events, Contact, Get Involved, Terms, Privacy)
+- **Total Pages: 9**
+
+### February 11, 2026 - Session 4: Hero Image
+- Added hero background image (p4p-hero.jpg)
+- Updated Hero component with image and gradient overlays
+- Matches Murray Chamber website hero style
+- Deployed to Vercel production
+- Created restart prompt and documentation
+- **Version: 1.1.0**
