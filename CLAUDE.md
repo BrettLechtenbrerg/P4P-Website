@@ -59,7 +59,9 @@
 │   ├── members/page.tsx   # Coalition Members Directory (like MACC)
 │   ├── events/page.tsx    # Community Events
 │   ├── contact/page.tsx   # Contact form
-│   └── get-involved/page.tsx  # Volunteer/Donate/Partner
+│   ├── get-involved/page.tsx  # Volunteer/Donate/Partner
+│   ├── terms/page.tsx     # Terms & Conditions (Jan 1, 2026)
+│   └── privacy/page.tsx   # Privacy Policy (Jan 1, 2026)
 ├── components/
 │   ├── Navigation.tsx     # Main nav with mobile menu
 │   ├── Footer.tsx         # Footer with links + social
@@ -124,7 +126,7 @@ git add -A && git commit -m "message" && git push
 ## What's Built vs What's Needed
 
 ### ✅ Complete
-- [x] All 7 pages with structure and styling
+- [x] All 9 pages with structure and styling (added Terms & Privacy)
 - [x] Navigation with mobile responsive menu
 - [x] Footer with social links
 - [x] Partner organizations section
@@ -199,3 +201,11 @@ This avoids issues with standard uploads and ensures proper builds.
 - Tier system: Founding Partner, Partner, Supporter
 - 9 placeholder member organizations (ready for real data from screenshots)
 - Updated Navigation and Footer to include Members link
+
+### February 11, 2026 - Session 3: Legal Pages
+- Added Terms & Conditions page (`/terms`)
+- Added Privacy Policy page (`/privacy`)
+- Both pages effective January 1, 2026
+- Nonprofit coalition-specific language for Murray Partners 4 Prevention
+- Footer already had links to these pages - now functional
+- **Total Pages: 9** (Home, About, Team, Members, Events, Contact, Get Involved, Terms, Privacy)
