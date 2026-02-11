@@ -34,7 +34,7 @@ const members: Member[] = [
     address: 'Salt Lake City, UT',
     phone: '(385) 468-4100',
     website: 'slco.org/health',
-    image: '/images/members/slco-health.png',
+    image: '/images/p4p-logo.png',
     tier: 'founding',
   },
   {
@@ -45,7 +45,7 @@ const members: Member[] = [
     address: '5121 Cottonwood Street, Murray, UT 84107',
     phone: '(801) 507-7000',
     website: 'intermountainhealthcare.org',
-    image: '/images/members/intermountain.png',
+    image: '/images/p4p-logo.png',
     tier: 'founding',
   },
   {
@@ -56,7 +56,7 @@ const members: Member[] = [
     address: '5440 S. State Street, Murray, UT 84107',
     phone: '(801) 288-1131',
     website: 'murrayschools.org',
-    image: '/images/members/murray-schools.png',
+    image: '/images/p4p-logo.png',
     tier: 'founding',
   },
   {
@@ -67,7 +67,7 @@ const members: Member[] = [
     address: '10 East 4800 South, Murray, UT 84107',
     phone: '(801) 270-2429',
     website: 'murray.utah.gov',
-    image: '/images/members/murray-city.png',
+    image: '/images/p4p-logo.png',
     tier: 'founding',
   },
   {
@@ -78,7 +78,7 @@ const members: Member[] = [
     address: '5381 Green Street, Murray, UT 84123',
     phone: '(801) 442-7955',
     website: 'selecthealth.org',
-    image: '/images/members/selecthealth.png',
+    image: '/images/p4p-logo.png',
     tier: 'founding',
   },
 
@@ -91,7 +91,7 @@ const members: Member[] = [
     address: '141 E 5600 S Suite 300, Murray, UT 84107',
     phone: '(801) 263-2632',
     website: 'themurraychamber.com',
-    image: '/images/members/macc.png',
+    image: '/images/p4p-logo.png',
     tier: 'partner',
   },
   {
@@ -100,7 +100,7 @@ const members: Member[] = [
     category: 'Nonprofit',
     description: 'Proudly dedicated to serving our community through Unity for Service and prevention of child abuse.',
     website: 'exchangeclub.org',
-    image: '/images/members/exchange-club.png',
+    image: '/images/p4p-logo.png',
     tier: 'partner',
   },
   {
@@ -109,7 +109,7 @@ const members: Member[] = [
     category: 'Nonprofit',
     description: 'Dedicated to serving our community through impactful projects, fellowship, and leadership development.',
     website: 'rotary.org',
-    image: '/images/members/rotary.png',
+    image: '/images/p4p-logo.png',
     tier: 'partner',
   },
   {
@@ -119,7 +119,7 @@ const members: Member[] = [
     description: 'A union of student leaders and business partners who come together through networking, internships, and community service.',
     address: '141 E 5600 S Suite 315, Murray, UT 84107',
     phone: '(801) 808-0830',
-    image: '/images/members/mycc.png',
+    image: '/images/p4p-logo.png',
     tier: 'partner',
   },
 
