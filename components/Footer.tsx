@@ -17,6 +17,7 @@ const footerLinks = {
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
     { label: 'Our Team', href: '/team' },
+    { label: 'Members', href: '/members' },
     { label: 'Events', href: '/events' },
   ],
   'Get Involved': [
@@ -26,7 +27,7 @@ const footerLinks = {
     { label: 'Contact', href: '/contact' },
   ],
   'Resources': [
-    { label: 'News', href: '/news' },
+    { label: 'Member Directory', href: '/members' },
     { label: 'Events Calendar', href: '/events' },
     { label: 'Partner Organizations', href: '/#partners' },
   ],

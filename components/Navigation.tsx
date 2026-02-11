@@ -15,6 +15,7 @@ import {
   Mail,
   Heart,
   HandHeart,
+  Building2,
 } from 'lucide-react';
 
 // Navigation structure for P4P
@@ -33,6 +34,11 @@ const navigationItems = [
     label: 'Team',
     href: '/team',
     icon: Users,
+  },
+  {
+    label: 'Members',
+    href: '/members',
+    icon: Building2,
   },
   {
     label: 'Events',
