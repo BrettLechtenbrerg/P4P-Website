@@ -1,20 +1,22 @@
-# Murray Partners 4 Prevention Website - Ultimate Restart Prompt
+# P4P Website - Ultimate Restart Prompt
 
-**Copy and paste everything below this line into a new Claude Code conversation:**
+**Copy and paste everything below the line into a new Claude Code conversation:**
 
 ---
 
-## P4P WEBSITE RESTART PROMPT
+## 🔄 P4P WEBSITE - ULTIMATE RESTART PROMPT
 
 I'm continuing work on the **Murray Partners 4 Prevention (P4P) Coalition Website**.
 
-### FIRST: Read the Project Context
+### 📍 FIRST: Read Project Context
 
-```
-/Users/brettlechtenberg/Desktop/Claude Projects/P4P-Website/CLAUDE.md
-```
+Please read: `/Users/brettlechtenberg/Desktop/Claude Projects/P4P-Website/CLAUDE.md`
 
-### Quick Links
+This file contains complete project documentation, tech stack, design system, and full session history.
+
+---
+
+### 🔗 Quick Links
 
 | Resource | URL |
 |----------|-----|
@@ -24,52 +26,46 @@ I'm continuing work on the **Murray Partners 4 Prevention (P4P) Coalition Websit
 | **Local Project** | `/Users/brettlechtenberg/Desktop/Claude Projects/P4P-Website/` |
 | **Current P4P Site** | https://murrayp4p.com/ (GoHighLevel - being replaced) |
 
-### Design Reference
+---
 
-This site matches the visual style of the Murray Chamber of Commerce website:
-- **MACC Site:** https://macc-website-2.vercel.app/
+### 📊 Current Status (v1.2.0 - February 11, 2026)
+
+**✅ PRODUCTION READY - FULLY MOBILE OPTIMIZED**
+
+**Complete Features:**
+- ✅ **9 Pages:** Home, About, Team, Members, Events, Contact, Get Involved, Terms, Privacy
+- ✅ **Hero Images:** Background images on ALL pages (Home + 6 content pages)
+- ✅ **Stable URL:** p4p-website.vercel.app (auto-updates on deploy)
+- ✅ **Mobile Optimized:** 320px to 1920px+, 44px touch targets, responsive layouts
+- ✅ **Member Directory:** Search, filter by category/tier, grid/list view, P4P logo placeholders
+- ✅ **Design System:** Glassmorphic black/orange theme, Framer Motion animations
+- ✅ **Navigation:** Responsive mobile menu (85vw max-width)
+- ✅ **Forms:** Contact form with validation (mock backend)
+- ✅ **Legal Pages:** Terms & Privacy (Jan 1, 2026)
+- ✅ **Git/Vercel:** 10 commits pushed, deployed, aliased
+
+---
+
+### 🎨 Design Reference
+
+This site matches the visual style of the **Murray Chamber of Commerce** website:
+- **MACC Production:** https://macc-website-2.vercel.app/
 - **MACC Reference:** https://web-seven-beta-31.vercel.app/
-- **MACC Repo:** https://github.com/BrettLechtenbrerg/MACC-Website
+- **Design:** Glassmorphic, dark theme with orange accents
 
-### Current Status (v1.1.0 - February 11, 2026)
+**Color Scheme:**
+```
+Black:       #1C1C1C (primary background)
+Deep Black:  #0F0F0F (aurora bg)
+Orange:      #F27A21 (accent, CTAs)
+Orange Lt:   #F9A45A (hover states)
+White:       #FFFFFF (text)
+Charcoal:    #2A2A2A (secondary bg)
+```
 
-**COMPLETE - 9 PAGES BUILT:**
+---
 
-| Page | Route | Description |
-|------|-------|-------------|
-| Home | `/` | Hero with background image, Partners, Contact CTA |
-| About | `/about` | Mission, vision, focus areas |
-| Team | `/team` | Coalition officers & members (PLACEHOLDER) |
-| Members | `/members` | Coalition member directory with search/filter |
-| Events | `/events` | Community events (PLACEHOLDER) |
-| Contact | `/contact` | Contact form |
-| Get Involved | `/get-involved` | Volunteer, Donate, Partner |
-| Terms | `/terms` | Terms & Conditions (Jan 1, 2026) |
-| Privacy | `/privacy` | Privacy Policy (Jan 1, 2026) |
-
-**Also Complete:**
-- Next.js 16 / React 19 / Tailwind CSS 3.4 / Framer Motion
-- Glassmorphic design with Black/Orange/White color scheme
-- Hero section with background image (p4p-hero.jpg)
-- Mobile-responsive navigation and footer
-- Partner organizations section (9 partners)
-- Members directory with search, category filter, tier filter, grid/list view
-- GitHub repo connected and all commits pushed
-- Vercel production deployment working
-
-**NEEDS REAL CONTENT (Currently Placeholders):**
-
-| Item | Status | Notes |
-|------|--------|-------|
-| Members page | Placeholder | Add real coalition member orgs |
-| Team page | Placeholder | Replace with real P4P officers and members |
-| Events page | Placeholder | Replace sample events with real P4P events |
-| About page | Needs verification | Check mission/vision accuracy |
-| Partner logos | Placeholder images | Add actual organization logos |
-| Contact form | Mock success | Connect to backend (GHL integration?) |
-| Social links | Placeholder URLs | Update to real P4P profiles |
-
-### Tech Stack
+### 💻 Tech Stack
 
 ```
 Next.js         16.1.6    App Router, SSR
@@ -80,47 +76,74 @@ Lucide React    0.563.0   Icons
 TypeScript      5.9.3     Type Safety
 ```
 
-### Color Scheme
+---
+
+### 📁 Project Structure
 
 ```
-Black       #1C1C1C   Primary background
-Deep Black  #0F0F0F   Aurora background
-Orange      #F27A21   Accent, CTAs, gradients
-Orange Lt   #F9A45A   Hover states, highlights
-White       #FFFFFF   Text, highlights
-Charcoal    #2A2A2A   Secondary background
+P4P-Website/
+├── app/
+│   ├── page.tsx              # Home (with p4p-hero.jpg)
+│   ├── layout.tsx            # Root layout + Navigation
+│   ├── globals.css           # Design system
+│   ├── about/page.tsx        # About (with bg image)
+│   ├── team/page.tsx         # Team (with bg image)
+│   ├── members/page.tsx      # Member Directory (with bg image)
+│   ├── events/page.tsx       # Events (with bg image)
+│   ├── contact/page.tsx      # Contact Form (with bg image)
+│   ├── get-involved/page.tsx # Get Involved (with bg image)
+│   ├── terms/page.tsx        # Terms & Conditions
+│   └── privacy/page.tsx      # Privacy Policy
+├── components/
+│   ├── Navigation.tsx        # Main nav + mobile menu
+│   ├── Footer.tsx            # Footer with links
+│   ├── Hero.tsx              # Home hero (with bg image)
+│   ├── PageHeader.tsx        # Page header (supports bg images)
+│   ├── Partners.tsx          # Partner grid
+│   ├── ContactCTA.tsx        # CTA banner
+│   └── animations/           # FadeIn, ScaleIn, Stagger
+├── public/images/
+│   ├── p4p-logo.png          # Main logo
+│   └── hero/
+│       └── p4p-hero.jpg      # Hero background
+├── CLAUDE.md                 # Complete documentation
+├── RESTART-PROMPT.md         # This file
+└── README.md                 # Project readme
 ```
 
-### Project Structure
+---
 
-```
-app/
-├── page.tsx              # Home (with hero image)
-├── about/page.tsx        # About Us
-├── team/page.tsx         # Coalition Team
-├── members/page.tsx      # Member Directory (MACC-style)
-├── events/page.tsx       # Events
-├── contact/page.tsx      # Contact Form
-├── get-involved/page.tsx # Volunteer/Donate/Partner
-├── terms/page.tsx        # Terms & Conditions
-├── privacy/page.tsx      # Privacy Policy
-└── globals.css           # Design system
+### ⏳ What Still Needs Real Content
 
-components/
-├── Navigation.tsx        # Main nav + mobile menu
-├── Footer.tsx            # Footer with links
-├── Hero.tsx              # Home hero section (with bg image)
-├── Partners.tsx          # Partner grid
-├── PageHeader.tsx        # Reusable header
-└── animations/           # FadeIn, ScaleIn, Stagger
+**All pages are built with PLACEHOLDER data:**
 
-public/images/
-├── p4p-logo.png          # Logo
-└── hero/
-    └── p4p-hero.jpg      # Hero background image
-```
+| Item | Current State | What's Needed |
+|------|---------------|---------------|
+| **Team Page** | 6 placeholder officers/members | Real P4P team names, titles, bios, photos |
+| **Members Page** | 9 placeholder organizations with P4P logo | Real member org names, descriptions, actual logos |
+| **About Page** | Generic mission statement | Verify/update with real P4P mission, vision, focus areas |
+| **Events Page** | 3 sample events | Real P4P event names, dates, locations, descriptions |
+| **Member/Org Logos** | All use p4p-logo.png placeholder | Upload actual logos to `/public/images/members/` |
+| **Contact Form** | Mock success message | Connect to backend (GHL integration?) |
+| **Social Links** | Placeholder URLs (#) | Update with real P4P social media profiles |
+| **Stats on Home** | Estimated numbers | Update with real metrics (events, members, reach, years) |
 
-### Common Commands
+---
+
+### 🚀 Future Enhancements (Not Yet Built)
+
+1. **News/Blog Section** - Add blog page with article cards
+2. **Event Calendar Integration** - Connect to Google Calendar or event system
+3. **Donation Payment System** - Integrate Stripe/PayPal for donations
+4. **Newsletter Signup** - Connect to email service (GHL integration)
+5. **Team Member Photos** - Add headshots to team page
+6. **Resource Library** - Downloadable PDFs, guides, materials
+7. **Success Stories** - Testimonials/impact stories section
+8. **Photo Gallery** - Community event photos
+
+---
+
+### 🛠️ Common Commands
 
 ```bash
 # Navigate to project
@@ -134,49 +157,120 @@ npm run build             # Test production build
 vercel --prod --yes       # Deploy to Vercel (ALWAYS use CLI!)
 
 # Git
-git status
-git add -A && git commit -m "message" && git push
+git status                # Check status
+git add -A                # Stage all changes
+git commit -m "message"   # Commit
+git push origin main      # Push to GitHub
+git log --oneline -10     # View recent commits
 ```
 
-### Critical Notes
+---
 
-1. **ALWAYS deploy via Vercel CLI** - standard uploads have issues
+### ⚠️ Critical Notes
+
+1. **ALWAYS deploy via Vercel CLI** (`vercel --prod --yes`) - standard uploads have issues
 2. **Color scheme is Black/Orange/White** - adapted from MACC's purple/orange
-3. **Team/Events content are PLACEHOLDERS** - couldn't scrape from GoHighLevel (403)
-4. **Members directory** - Ready for real data, has 9 placeholder orgs with tier system
-5. **Legal pages** - Full Terms & Privacy dated January 1, 2026
-6. **Hero image** - p4p-hero.jpg with gradient overlays
+3. **All content pages have background images** - using Unsplash URLs
+4. **Member logos are P4P logo placeholders** - ready to replace with real logos
+5. **Mobile optimized** - 44px touch targets, responsive layouts, tested 320px-1920px+
+6. **Stable URL:** p4p-website.vercel.app (auto-updates, no need to track deployment URLs)
 
-### Git Status
+---
+
+### 🗂️ Session History Summary
+
+**Session 1:** Initial build - 9 pages, design system, components
+**Session 2:** Members directory - search, filters, tier system
+**Session 3:** Legal pages - Terms & Privacy
+**Session 4:** Home hero image - p4p-hero.jpg with overlays
+**Session 5:** Page images, stable URL, mobile optimization
+
+**Total:** 10 commits, 9 pages, fully mobile-optimized, production-ready
+
+---
+
+### 📝 Git Status
 
 ```
 Branch: main
 Remote: origin/main (up to date)
-Commits: 6 (all pushed)
+Commits: 10 (all pushed)
 Status: Clean - nothing to commit
+Latest: "Improve mobile optimization across site"
 ```
+
+---
+
+### 🎯 What to Work On Next
+
+Choose based on priority:
+
+**HIGH PRIORITY - Content Updates:**
+1. Get real team member data (names, titles, bios, photos)
+2. Get real member organization data (names, descriptions, logos)
+3. Get real event data (names, dates, locations)
+4. Update About page with verified mission/vision
+5. Get actual organization logos for member cards
+
+**MEDIUM PRIORITY - Functionality:**
+6. Connect contact form to backend (GHL or email service)
+7. Update social media links to real P4P profiles
+8. Update home page stats with real numbers
+
+**LOW PRIORITY - Enhancements:**
+9. Add news/blog section
+10. Integrate event calendar
+11. Add donation payment system
+12. Add newsletter signup
+
+---
+
+### 💡 How to Replace Placeholder Content
+
+**Example: Updating Team Members**
+
+1. Open `/app/team/page.tsx`
+2. Find the `officers` and `boardMembers` arrays
+3. Replace placeholder data:
+```typescript
+{
+  id: 1,
+  name: "Real Person Name",
+  title: "Real Title",
+  bio: "Real bio text...",
+  image: "/images/team/person-name.jpg" // Upload photo first
+}
+```
+4. Upload photos to `/public/images/team/`
+5. Commit and deploy
+
+**Example: Updating Member Organization Logos**
+
+1. Upload logo to `/public/images/members/org-name-logo.png`
+2. Open `/app/members/page.tsx`
+3. Update the `image` property:
+```typescript
+image: '/images/members/org-name-logo.png'
+```
+4. Commit and deploy
+
+---
+
+### 🔗 Additional Resources
+
+- **Unsplash (images):** https://unsplash.com/
+- **Tailwind Docs:** https://tailwindcss.com/docs
+- **Framer Motion:** https://www.framer.com/motion/
+- **Next.js Docs:** https://nextjs.org/docs
+
+---
+
+**Last Updated:** February 11, 2026 - Session 5 (v1.2.0)
+**Status:** Production Ready, Fully Mobile Optimized
+**Next Steps:** Add real content (team, members, events) or build new features
 
 ---
 
 ### What would you like to work on?
 
-**Content Tasks:**
-1. Add real coalition member organizations (need screenshots/data)
-2. Add real team member content (need names/titles/bios)
-3. Add real events data
-
-**Enhancement Tasks:**
-4. Connect contact form to backend (GHL?)
-5. Add actual partner/member logos
-6. Update social media links to real profiles
-
-**New Features:**
-7. News/blog section
-8. Event calendar integration
-9. Donation payment integration
-10. Newsletter signup
-
----
-
-*Last Updated: February 11, 2026 - Session 4 (v1.1.0)*
-*Pages: 9 | Commits: 6 | Status: Production Ready (with placeholder content)*
+[Tell me what you want to do next!]

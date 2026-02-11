@@ -3,10 +3,10 @@
 ## Project Overview
 
 **Project Name:** Murray Partners 4 Prevention (P4P) Coalition Website
-**Version:** 1.1.0
+**Version:** 1.2.0
 **Created:** February 11, 2026
-**Last Updated:** February 11, 2026
-**Status:** Core Build Complete - Ready for Real Content
+**Last Updated:** February 11, 2026 (Session 5)
+**Status:** Production Ready - Fully Mobile Optimized
 
 ### Quick Links
 - **Production URL:** https://p4p-website.vercel.app (stable URL)
@@ -129,10 +129,12 @@ git add -A && git commit -m "message" && git push
 
 ## What's Built vs What's Needed
 
-### ✅ Complete (v1.1.0)
+### ✅ Complete (v1.2.0)
 - [x] All 9 pages with structure and styling
-- [x] Hero section with background image (p4p-hero.jpg)
-- [x] Navigation with mobile responsive menu
+- [x] Hero background images on ALL pages (Home, About, Team, Members, Events, Contact, Get Involved)
+- [x] Stable Vercel production URL (p4p-website.vercel.app)
+- [x] P4P logo placeholders in all member organization cards
+- [x] Navigation with mobile responsive menu (optimized 85vw width)
 - [x] Footer with social links
 - [x] Partner organizations section
 - [x] Members directory page with search/filter
@@ -140,7 +142,9 @@ git add -A && git commit -m "message" && git push
 - [x] Framer Motion animations
 - [x] Terms & Conditions page
 - [x] Privacy Policy page
-- [x] GitHub repo connected
+- [x] **Comprehensive mobile optimization** (320px - 1920px+)
+- [x] Minimum 44px touch targets on all interactive elements
+- [x] GitHub repo connected (10 commits)
 - [x] Vercel deployment working
 
 ### ⏳ Needs Real Content (Placeholders Currently)
@@ -220,3 +224,24 @@ This avoids issues with standard uploads and ensures proper builds.
 - Deployed to Vercel production
 - Created restart prompt and documentation
 - **Version: 1.1.0**
+
+### February 11, 2026 - Session 5: Page Images, Stable URL & Mobile Optimization
+- **Stable Vercel URL:** Created permanent alias `p4p-website.vercel.app`
+- **Page Background Images:** Added hero images to all 6 content pages:
+  - About: Community diversity image
+  - Team: Business collaboration image
+  - Members: Partnership image
+  - Events: Community gathering image
+  - Contact: Communication image
+  - Get Involved: Volunteering image
+- **Member Logo Placeholders:** All 9 member org cards now show P4P logo until real logos provided
+- **Comprehensive Mobile Optimization:**
+  - Contact page social links: flex-wrap, responsive padding/text
+  - Members page filters: Better stacking, grouped controls, responsive widths
+  - Navigation mobile menu: Responsive 85vw width (max 384px)
+  - All interactive elements: Minimum 44x44px touch targets
+  - Added aria-labels for accessibility
+- **Git:** 10 total commits, all pushed
+- **Vercel:** Deployed and aliased to stable URL
+- **Documentation:** Updated CLAUDE.md and RESTART-PROMPT.md
+- **Version: 1.2.0** - Production Ready!
