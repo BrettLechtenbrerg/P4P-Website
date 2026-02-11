@@ -9,7 +9,7 @@
 **Status:** Core Build Complete - Ready for Real Content
 
 ### Quick Links
-- **Production URL:** https://p4p-website-27god55vc-bretts-projects-3e254e58.vercel.app
+- **Production URL:** https://p4p-website.vercel.app (stable URL)
 - **GitHub Repo:** https://github.com/BrettLechtenbrerg/P4P-Website
 - **Vercel Project:** https://vercel.com/bretts-projects-3e254e58/p4p-website
 - **Current P4P Site (GoHighLevel):** https://murrayp4p.com/

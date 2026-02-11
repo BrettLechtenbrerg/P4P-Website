@@ -18,7 +18,7 @@ I'm continuing work on the **Murray Partners 4 Prevention (P4P) Coalition Websit
 
 | Resource | URL |
 |----------|-----|
-| **Live Site** | https://p4p-website-27god55vc-bretts-projects-3e254e58.vercel.app |
+| **Live Site** | https://p4p-website.vercel.app (stable URL) |
 | **GitHub Repo** | https://github.com/BrettLechtenbrerg/P4P-Website |
 | **Vercel Dashboard** | https://vercel.com/bretts-projects-3e254e58/p4p-website |
 | **Local Project** | `/Users/brettlechtenberg/Desktop/Claude Projects/P4P-Website/` |
