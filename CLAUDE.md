@@ -3,13 +3,14 @@
 ## Project Overview
 
 **Project Name:** Murray Partners 4 Prevention (P4P) Coalition Website
-**Version:** 1.2.0
+**Version:** 2.0.0
 **Created:** February 11, 2026
-**Last Updated:** February 11, 2026 (Session 5)
-**Status:** Production Ready - Fully Mobile Optimized
+**Last Updated:** February 14, 2026 (Session 6)
+**Status:** Production Ready - Now with Power Hub CMS!
 
 ### Quick Links
 - **Production URL:** https://p4p-website.vercel.app (stable URL)
+- **Power Hub CMS:** https://p4p-website.vercel.app/power-hub
 - **GitHub Repo:** https://github.com/BrettLechtenbrerg/P4P-Website
 - **Vercel Project:** https://vercel.com/bretts-projects-3e254e58/p4p-website
 - **Current P4P Site (GoHighLevel):** https://murrayp4p.com/
@@ -62,18 +63,34 @@
 │   ├── contact/page.tsx   # Contact form
 │   ├── get-involved/page.tsx  # Volunteer/Donate/Partner
 │   ├── terms/page.tsx     # Terms & Conditions (Jan 1, 2026)
-│   └── privacy/page.tsx   # Privacy Policy (Jan 1, 2026)
+│   ├── privacy/page.tsx   # Privacy Policy (Jan 1, 2026)
+│   ├── power-hub/         # 🆕 Embedded CMS (hidden from public)
+│   │   ├── page.tsx       # Login page
+│   │   ├── layout.tsx     # noindex/nofollow metadata
+│   │   └── dashboard/
+│   │       ├── page.tsx           # Dashboard home
+│   │       ├── layout.tsx         # Sidebar + auth check
+│   │       ├── content/page.tsx   # Content files list
+│   │       ├── content/[file]/page.tsx  # JSON editor
+│   │       └── settings/page.tsx  # Site info & links
+│   └── api/power-hub/     # 🆕 CMS API routes
+│       ├── auth/route.ts          # Login/verify token
+│       ├── content/route.ts       # Read/write JSON files
+│       └── deploy/route.ts        # Git push to deploy
 ├── components/
 │   ├── Navigation.tsx     # Main nav with mobile menu
 │   ├── Footer.tsx         # Footer with links + social
-│   ├── Hero.tsx           # Home page hero section (with background image)
-│   ├── Partners.tsx       # Partner organizations grid
+│   ├── Hero.tsx           # Home page hero (reads from content/home.json)
+│   ├── Partners.tsx       # Partner grid (reads from content/home.json)
 │   ├── ContactCTA.tsx     # Contact call-to-action banner
 │   ├── PageHeader.tsx     # Reusable page header
 │   └── animations/        # Framer Motion wrappers
 │       ├── FadeIn.tsx
 │       ├── ScaleIn.tsx
 │       └── StaggerChildren.tsx
+├── content/               # 🆕 JSON content files (editable via Power Hub)
+│   ├── home.json          # Hero, Partners, Stats data
+│   └── about.json         # About page content
 ├── public/
 │   └── images/
 │       ├── p4p-logo.png   # Downloaded from current site
@@ -127,11 +144,57 @@ git add -A && git commit -m "message" && git push
 
 ---
 
+## 🔐 Power Hub CMS (NEW in v2.0.0)
+
+The Power Hub is an embedded content management system that allows non-technical users to edit website content without touching code.
+
+### Access
+- **URL:** https://p4p-website.vercel.app/power-hub
+- **Username:** `p4padmin`
+- **Password:** `p4p2026`
+- **Hidden:** robots: noindex, nofollow (won't appear in search engines)
+
+### Features
+| Feature | Description |
+|---------|-------------|
+| **Login** | Secure dark-themed login page |
+| **Dashboard** | Quick actions, content file list with timestamps |
+| **Content Editor** | Visual JSON editor for nested objects/arrays |
+| **Deploy Button** | One-click git push triggers Vercel rebuild |
+| **Settings** | Site info, quick links to live pages |
+
+### How It Works
+```
+Site Owner → Login → Edit JSON content → Save → Deploy → Vercel auto-builds → Live site updates
+```
+
+### Content Files
+Content is stored in `/content/*.json` files:
+- `home.json` - Hero text, partner logos, stats
+- `about.json` - Mission, values, focus areas
+
+Components read from these JSON files:
+```typescript
+import homeContent from '@/content/home.json';
+const { hero } = homeContent;
+```
+
+### Environment Variables (Optional)
+Set in `.env.local` or Vercel dashboard:
+```
+PORTAL_USERNAME=p4padmin    # Default if not set
+PORTAL_PASSWORD=p4p2026     # Default if not set
+```
+
+---
+
 ## What's Built vs What's Needed
 
-### ✅ Complete (v1.2.0)
-- [x] All 9 pages with structure and styling
-- [x] Hero background images on ALL pages (Home, About, Team, Members, Events, Contact, Get Involved)
+### ✅ Complete (v2.0.0)
+- [x] All 9 public pages with structure and styling
+- [x] **Power Hub CMS** - embedded content management at /power-hub
+- [x] **Content JSON** - home.json and about.json for editable content
+- [x] Hero background images on ALL pages
 - [x] Stable Vercel production URL (p4p-website.vercel.app)
 - [x] P4P logo placeholders in all member organization cards
 - [x] Navigation with mobile responsive menu (optimized 85vw width)
@@ -144,7 +207,7 @@ git add -A && git commit -m "message" && git push
 - [x] Privacy Policy page
 - [x] **Comprehensive mobile optimization** (320px - 1920px+)
 - [x] Minimum 44px touch targets on all interactive elements
-- [x] GitHub repo connected (10 commits)
+- [x] GitHub repo connected (11 commits)
 - [x] Vercel deployment working
 
 ### ⏳ Needs Real Content (Placeholders Currently)
@@ -245,3 +308,27 @@ This avoids issues with standard uploads and ensures proper builds.
 - **Vercel:** Deployed and aliased to stable URL
 - **Documentation:** Updated CLAUDE.md and RESTART-PROMPT.md
 - **Version: 1.2.0** - Production Ready!
+
+### February 14, 2026 - Session 6: Power Hub CMS
+- **🆕 Power Hub CMS:** Built complete embedded content management system
+  - Login page at `/power-hub` with secure authentication
+  - Dashboard with quick actions and content file list
+  - Visual JSON editor for nested objects and arrays
+  - One-click deploy button (git push → Vercel rebuild)
+  - Settings page with site info and quick links
+- **Content JSON System:**
+  - Created `/content/home.json` (hero, partners, stats)
+  - Created `/content/about.json` (mission, values, focus areas)
+  - Updated Hero.tsx and Partners.tsx to read from JSON
+  - Updated about/page.tsx to read from JSON
+- **API Routes:**
+  - `/api/power-hub/auth` - Login and token verification
+  - `/api/power-hub/content` - Read/write JSON content files
+  - `/api/power-hub/deploy` - Git add, commit, push
+- **Security:**
+  - Hidden from search engines (robots: noindex, nofollow)
+  - Token-based authentication with localStorage
+  - Environment variable support for credentials
+- **Credentials:** p4padmin / p4p2026
+- **Git:** 11 total commits, all pushed
+- **Version: 2.0.0** - Major Feature Release!
