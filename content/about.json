@@ -1,0 +1,70 @@
+{
+  "pageHeader": {
+    "badge": "About Us",
+    "title": "Our Mission",
+    "description": "A connected and compassionate Murray where all residents are empowered to thrive, grow, and build a stronger, safer community together.",
+    "backgroundImage": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
+  },
+  "whoWeAre": {
+    "sectionLabel": "Who We Are",
+    "title": "Murray Partners 4 Prevention",
+    "paragraphs": [
+      "Murray Partners 4 Prevention (P4P) is a community coalition dedicated to building a stronger, safer Murray. We bring together residents, organizations, and local leaders to address community challenges through prevention, education, and support.",
+      "Our coalition works collaboratively with schools, healthcare providers, city government, businesses, and community organizations to create programs and initiatives that empower residents of all ages."
+    ],
+    "vision": "A connected and compassionate Murray where all residents are empowered to thrive, grow, and build a stronger, safer community together.",
+    "visionTags": ["Supporting Residents", "Connecting Families", "Empowering Youth", "Fostering Growth"]
+  },
+  "values": [
+    {
+      "icon": "Heart",
+      "title": "Compassion",
+      "description": "We lead with empathy and understanding, recognizing the unique challenges each Murray resident faces."
+    },
+    {
+      "icon": "Users",
+      "title": "Connection",
+      "description": "Building bridges between families, organizations, and community resources to create lasting support networks."
+    },
+    {
+      "icon": "Shield",
+      "title": "Prevention",
+      "description": "Proactively addressing community challenges before they become crises through education and early intervention."
+    },
+    {
+      "icon": "Target",
+      "title": "Empowerment",
+      "description": "Giving residents the tools, knowledge, and confidence to thrive and contribute to our community."
+    }
+  ],
+  "focusAreas": [
+    {
+      "title": "Youth Development",
+      "description": "Empowering young people with leadership skills, mentorship opportunities, and positive community engagement."
+    },
+    {
+      "title": "Family Support",
+      "description": "Connecting families with resources for health, education, and well-being to strengthen the foundation of our community."
+    },
+    {
+      "title": "Substance Prevention",
+      "description": "Educating residents about substance abuse prevention and providing support for those seeking help."
+    },
+    {
+      "title": "Community Safety",
+      "description": "Working with local organizations to create a safer environment for all Murray residents."
+    }
+  ],
+  "cta": {
+    "title": "Join Our Mission",
+    "description": "Whether you're a resident, organization, or business, there are many ways to get involved with Murray Partners 4 Prevention.",
+    "primaryButton": {
+      "text": "Get Involved",
+      "href": "/contact"
+    },
+    "secondaryButton": {
+      "text": "Meet the Team",
+      "href": "/team"
+    }
+  }
+}

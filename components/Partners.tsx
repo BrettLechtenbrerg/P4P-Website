@@ -4,56 +4,11 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import FadeIn from './animations/FadeIn';
 import StaggerChildren, { StaggerItem } from './animations/StaggerChildren';
-
-const partners = [
-  {
-    name: 'Salt Lake County Health Department',
-    description: 'Offering a long list of programs including tobacco prevention, STD clinic, food protection, and community health initiatives.',
-    url: 'https://slco.org/health/',
-  },
-  {
-    name: 'Intermountain Medical Center',
-    description: 'Providing advanced medical care in a friendly and supportive environment for the Murray community.',
-    url: 'https://intermountainhealthcare.org/',
-  },
-  {
-    name: 'Murray School District',
-    description: 'Dedicated to cultivating a safe, supportive, and inspiring environment where every student is empowered to succeed.',
-    url: 'https://murrayschools.org/',
-  },
-  {
-    name: 'Murray City',
-    description: 'Dedicated to preserving our rich history while building a vibrant, connected, and forward-thinking community.',
-    url: 'https://murray.utah.gov/',
-  },
-  {
-    name: 'Select Health',
-    description: 'Offer plans to serve all members of our community from individuals and families to employers.',
-    url: 'https://selecthealth.org/',
-  },
-  {
-    name: 'Murray Chamber of Commerce',
-    description: 'Empowering local businesses, fostering community connections, and driving economic growth in Murray.',
-    url: 'https://themurraychamber.com/',
-  },
-  {
-    name: 'Exchange Club',
-    description: 'Proudly dedicated to serving our community through Unity for Service and prevention of child abuse.',
-    url: '#',
-  },
-  {
-    name: 'Murray Rotary',
-    description: 'Dedicated to serving our community through impactful projects, fellowship, and leadership development.',
-    url: '#',
-  },
-  {
-    name: 'Murray Youth Community Council',
-    description: 'A union of student leaders and business partners who come together through networking, internships, and community service.',
-    url: '#',
-  },
-];
+import homeContent from '@/content/home.json';
 
 export default function Partners() {
+  const { partners } = homeContent;
+
   return (
     <section id="partners" className="relative w-full py-16 sm:py-20 md:py-24 overflow-hidden bg-gradient-to-b from-black via-black/95 to-black">
       {/* Background Elements */}
@@ -70,17 +25,17 @@ export default function Partners() {
               Our Partners
             </span>
             <h2 className="mt-4 text-4xl sm:text-5xl font-bold text-white">
-              Partner Organizations
+              {partners.sectionTitle}
             </h2>
             <p className="mt-4 text-lg text-white/60 max-w-2xl mx-auto">
-              Working together with community leaders and organizations to build a stronger, safer Murray.
+              {partners.sectionSubtitle}
             </p>
           </div>
         </FadeIn>
 
         {/* Partners Grid */}
         <StaggerChildren staggerDelay={0.1} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {partners.map((partner) => (
+          {partners.items.map((partner) => (
             <StaggerItem key={partner.name}>
               <motion.a
                 href={partner.url}
@@ -118,10 +73,10 @@ export default function Partners() {
         <FadeIn direction="up" delay={0.4}>
           <div className="mt-16 glass-strong rounded-3xl p-8 md:p-12 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-white">
-              Interested in Partnering?
+              {partners.ctaTitle}
             </h3>
             <p className="mt-4 text-white/60 max-w-2xl mx-auto">
-              Join our coalition of community organizations working together to make Murray a better place for all residents.
+              {partners.ctaDescription}
             </p>
             <motion.a
               href="/contact"
@@ -129,7 +84,7 @@ export default function Partners() {
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 mt-8 btn-glow"
             >
-              Become a Partner
+              {partners.ctaButton}
             </motion.a>
           </div>
         </FadeIn>

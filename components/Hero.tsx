@@ -6,14 +6,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import FadeIn from './animations/FadeIn';
 import ScaleIn from './animations/ScaleIn';
+import homeContent from '@/content/home.json';
 
 export default function Hero() {
+  const { hero } = homeContent;
+
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero/p4p-hero.jpg"
+          src={hero.backgroundImage}
           alt="Murray Partners 4 Prevention Community"
           fill
           className="object-cover"
@@ -55,14 +58,14 @@ export default function Hero() {
         <FadeIn direction="up">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium">
             <Heart className="w-4 h-4 text-orange-400" />
-            Murray Partners 4 Prevention
+            {hero.badge}
           </span>
         </FadeIn>
 
         {/* Main Mission Statement */}
         <FadeIn direction="up" delay={0.1}>
           <h1 className="mt-8 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight max-w-5xl mx-auto">
-            <span className="text-white">A connected and compassionate Murray where all residents are </span>
+            <span className="text-white">{hero.headline.split('empowered to thrive')[0]}</span>
             <span className="bg-gradient-to-r from-orange-400 via-orange-300 to-orange-400 bg-clip-text text-transparent">
               empowered to thrive
             </span>
@@ -72,19 +75,14 @@ export default function Hero() {
         {/* Subheadline */}
         <FadeIn direction="up" delay={0.2}>
           <p className="mt-6 text-lg sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            Growing and building a stronger, safer community together.
+            {hero.subheadline}
           </p>
         </FadeIn>
 
         {/* Tagline Pills */}
         <FadeIn direction="up" delay={0.3}>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            {[
-              'Supporting Residents',
-              'Connecting Families',
-              'Empowering Youth',
-              'Fostering Lifelong Growth',
-            ].map((tag, index) => (
+            {hero.tags.map((tag, index) => (
               <motion.span
                 key={tag}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -101,23 +99,23 @@ export default function Hero() {
         {/* CTA Buttons */}
         <FadeIn direction="up" delay={0.5}>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact">
+            <Link href={hero.cta.primary.href}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all"
               >
                 <Mail className="w-5 h-5" />
-                <span>Contact Us</span>
+                <span>{hero.cta.primary.text}</span>
               </motion.button>
             </Link>
-            <Link href="/about">
+            <Link href={hero.cta.secondary.href}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all"
               >
-                <span>Learn More</span>
+                <span>{hero.cta.secondary.text}</span>
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
             </Link>
@@ -127,12 +125,7 @@ export default function Hero() {
         {/* Stats Row */}
         <FadeIn direction="up" delay={0.7}>
           <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {[
-              { number: '9+', label: 'Partner Organizations' },
-              { number: '1000+', label: 'Residents Reached' },
-              { number: '20+', label: 'Community Events' },
-              { number: '5+', label: 'Years Serving Murray' },
-            ].map((stat, index) => (
+            {hero.stats.map((stat, index) => (
               <ScaleIn key={stat.label} delay={0.8 + index * 0.1}>
                 <div className="glass-card p-6 sm:p-8 flex flex-col items-center justify-center">
                   <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">
