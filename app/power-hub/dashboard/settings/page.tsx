@@ -20,7 +20,7 @@ export default function SettingsPage() {
       <Header title="Settings" subtitle="Configure your Power Hub settings" />
 
       <div className="p-8">
-        <div className="max-w-3xl space-y-6">
+        <div className="space-y-6">
           {/* Site Settings */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center gap-3 mb-6">
