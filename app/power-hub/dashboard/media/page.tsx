@@ -22,6 +22,7 @@ export default function MediaPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [uploadError, setUploadError] = useState('');
   const [loadError, setLoadError] = useState('');
+  const [uploadSuccess, setUploadSuccess] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Load existing media on mount
@@ -88,6 +89,8 @@ export default function MediaPage() {
         };
 
         setMedia((prev) => [newFile, ...prev]);
+        setUploadSuccess('Image uploaded! Copy the URL below and paste it in the Content editor. Changes will appear on the live site in approximately 5 minutes after saving.');
+        setTimeout(() => setUploadSuccess(''), 15000); // Clear after 15 seconds
       } catch (error) {
         console.error('Upload error:', error);
         setUploadError('Failed to upload file: ' + String(error));
@@ -190,6 +193,23 @@ export default function MediaPage() {
               <p className="font-medium">Could not load existing media</p>
               <p className="text-sm">{loadError}</p>
             </div>
+          </div>
+        )}
+
+        {/* Upload Success Display */}
+        {uploadSuccess && (
+          <div className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 mb-6">
+            <Check size={20} />
+            <div>
+              <p className="font-medium">Upload Successful!</p>
+              <p className="text-sm">{uploadSuccess}</p>
+            </div>
+            <button
+              onClick={() => setUploadSuccess('')}
+              className="ml-auto text-green-500 hover:text-green-700"
+            >
+              ✕
+            </button>
           </div>
         )}
 

@@ -93,7 +93,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Deployed successfully! Your site will update in a few seconds.',
+      message: 'Deployed successfully! Site will update in approximately 5 minutes.',
       steps,
     });
   } catch (error) {

@@ -16,7 +16,7 @@ Client Browser → Power Hub UI → GitHub API → Vercel Auto-Deploy → Live S
 3. Clicks "Save & Deploy"
 4. Changes are committed directly to GitHub via API
 5. Vercel detects the commit and auto-deploys
-6. Live site updates in ~30 seconds
+6. Live site updates in approximately 5 minutes
 
 ---
 

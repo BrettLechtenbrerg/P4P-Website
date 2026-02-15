@@ -279,7 +279,7 @@ export default function EditContentPage({
         setSha(data.newSha);
       }
 
-      setSuccess('Changes saved and deployed! Site will update in ~30 seconds.');
+      setSuccess('Changes saved and deployed! Site will update in approximately 5 minutes.');
       setHasChanges(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to save');
