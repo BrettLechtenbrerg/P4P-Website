@@ -99,6 +99,28 @@
       "phone": "(801) 808-0830",
       "image": "/images/p4p-logo.png",
       "tier": "partner"
+    },
+    {
+      "id": 1,
+      "name": "Salt Lake County Health Department",
+      "category": "Healthcare",
+      "description": "Offering a long list of programs including tobacco prevention, STD clinic, food protection, and community health initiatives.",
+      "address": "Salt Lake City, UT",
+      "phone": "(385) 468-4100",
+      "website": "slco.org/health",
+      "image": "https://autaprcvep3wmic5.public.blob.vercel-storage.com/uploads/1771178018817-Screenshot_2026-01-27_at_5.25.26_AM_copy.png",
+      "tier": "founding"
+    },
+    {
+      "id": "10",
+      "name": "Total Success AI",
+      "category": "Technology",
+      "description": "Offering training, strategy and implementation for all things AI-related and ensuring a human-first strategy",
+      "address": "Sandy, UT",
+      "phone": "801718-3851",
+      "website": "https://www.totalsuccessai.com/",
+      "image": "https://autaprcvep3wmic5.public.blob.vercel-storage.com/uploads/1771178018817-Screenshot_2026-01-27_at_5.25.26_AM_copy.png",
+      "tier": "founding"
     }
   ],
   "tierInfo": {
