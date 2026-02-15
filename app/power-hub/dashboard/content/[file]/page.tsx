@@ -305,7 +305,7 @@ export default function EditContentPage({
       <Header title={`Edit ${file}`} subtitle="Edit content for this page" />
 
       <div className="p-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="">
       {/* Actions Bar */}
       <div className="flex items-center justify-between mb-6">
         <button

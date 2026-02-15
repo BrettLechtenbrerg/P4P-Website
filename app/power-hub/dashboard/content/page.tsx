@@ -77,7 +77,7 @@ export default function ContentListPage() {
       <Header title="Content" subtitle="Edit your website content" />
 
       <div className="p-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="">
       {/* Deploy Button */}
       <div className="flex justify-end mb-6">
         <button

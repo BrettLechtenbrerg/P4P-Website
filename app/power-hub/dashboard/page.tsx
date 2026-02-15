@@ -40,7 +40,7 @@ export default function PowerHubDashboardPage() {
       <Header title="Dashboard" subtitle="Welcome to your Power Hub" />
 
       <div className="p-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="">
         {/* Quick Actions */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         <Link

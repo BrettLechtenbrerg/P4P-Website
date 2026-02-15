@@ -198,7 +198,7 @@ export default function MediaPage() {
       <Header title="Media Library" subtitle="Upload and manage your images and files" />
 
       <div className="p-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="">
       {/* Actions Bar */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-4">

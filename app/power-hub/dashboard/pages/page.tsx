@@ -42,7 +42,7 @@ export default function PagesPage() {
       <Header title="Pages" subtitle="Manage your website pages and content" />
 
       <div className="p-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="">
       {/* Actions Bar */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-4">

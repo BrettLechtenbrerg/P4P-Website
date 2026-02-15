@@ -173,7 +173,7 @@ export default function AIAssistPage() {
       <Header title="AI Assist" subtitle="Powered by Claude AI - Generate and improve your content" />
 
       <div className="p-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Editor Area */}
         <div className="lg:col-span-2 space-y-6">

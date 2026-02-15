@@ -9,7 +9,7 @@ export default function SettingsPage() {
       <Header title="Settings" subtitle="Site information and configuration" />
 
       <div className="p-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="">
       {/* Site Info */}
       <div className="bg-white rounded-2xl border border-gray-200 mb-6">
         <div className="p-6 border-b border-gray-200">

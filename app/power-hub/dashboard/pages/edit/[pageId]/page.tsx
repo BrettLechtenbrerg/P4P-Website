@@ -213,7 +213,7 @@ export default function EditPage({
       </div>
 
       {/* Editor Area */}
-      <div className="max-w-7xl mx-auto p-8">
+      <div className=" p-8">
         {/* Page Settings */}
         <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Page Settings</h2>
