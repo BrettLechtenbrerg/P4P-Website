@@ -20,10 +20,22 @@
       }
     },
     "stats": [
-      { "number": "9+", "label": "Partner Organizations" },
-      { "number": "1000+", "label": "Residents Reached" },
-      { "number": "20+", "label": "Community Events" },
-      { "number": "5+", "label": "Years Serving Murray" }
+      {
+        "number": "10+",
+        "label": "Partner Organizations"
+      },
+      {
+        "number": "1000+",
+        "label": "Residents Reached"
+      },
+      {
+        "number": "20+",
+        "label": "Community Events"
+      },
+      {
+        "number": "5+",
+        "label": "Years Serving Murray"
+      }
     ],
     "backgroundImage": "/images/hero/p4p-hero.jpg"
   },
