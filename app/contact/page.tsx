@@ -6,8 +6,11 @@ import { Mail, Send, CheckCircle } from 'lucide-react';
 import PageHeader from '@/components/PageHeader';
 import Footer from '@/components/Footer';
 import FadeIn from '@/components/animations/FadeIn';
+import contactContent from '@/content/contact.json';
 
 export default function ContactPage() {
+  const { header, contactInfo, form, social } = contactContent;
+
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -29,13 +32,13 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader
-        badge="Contact"
-        title="Get in Touch"
-        description="Have questions or want to get involved? We'd love to hear from you."
+        badge={header.badge}
+        title={header.title}
+        description={header.description}
         breadcrumbs={[
           { label: 'Contact' },
         ]}
-        backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80"
+        backgroundImage={header.backgroundImage}
       />
 
       <section className="relative py-16 overflow-hidden">
@@ -49,9 +52,9 @@ export default function ContactPage() {
             {/* Contact Info */}
             <FadeIn direction="left">
               <div>
-                <h2 className="text-3xl font-bold text-white">Let&apos;s Connect</h2>
+                <h2 className="text-3xl font-bold text-white">{contactInfo.sectionTitle}</h2>
                 <p className="mt-4 text-white/70 leading-relaxed">
-                  Whether you have questions about our programs, want to volunteer, or are interested in partnering with us, we&apos;re here to help.
+                  {contactInfo.sectionDescription}
                 </p>
 
                 <div className="mt-8 space-y-6">
@@ -62,13 +65,13 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-lg font-semibold text-white">Email Us</h3>
                       <a
-                        href="mailto:director@murrayp4p.com"
+                        href={`mailto:${contactInfo.email}`}
                         className="mt-1 text-orange-400 hover:text-orange-300 transition-colors"
                       >
-                        director@murrayp4p.com
+                        {contactInfo.email}
                       </a>
                       <p className="mt-2 text-white/60 text-sm">
-                        We typically respond within 24-48 hours.
+                        {contactInfo.emailResponseTime}
                       </p>
                     </div>
                   </div>
@@ -76,18 +79,18 @@ export default function ContactPage() {
 
                 {/* Social Links */}
                 <div className="mt-8">
-                  <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4">{social.title}</h3>
                   <p className="text-white/60 text-sm mb-4">
-                    Stay connected with Murray Partners 4 Prevention on social media.
+                    {social.description}
                   </p>
                   <div className="flex flex-wrap gap-2 sm:gap-3">
-                    {['Facebook', 'Instagram', 'Twitter', 'LinkedIn', 'YouTube'].map((platform) => (
+                    {social.links.map((link) => (
                       <a
-                        key={platform}
-                        href="#"
+                        key={link.platform}
+                        href={link.url}
                         className="px-3 sm:px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-xs sm:text-sm whitespace-nowrap"
                       >
-                        {platform}
+                        {link.platform}
                       </a>
                     ))}
                   </div>
@@ -98,7 +101,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <FadeIn direction="right" delay={0.2}>
               <div className="glass-card p-8">
-                <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">{form.title}</h3>
 
                 {isSubmitted ? (
                   <motion.div
@@ -107,8 +110,8 @@ export default function ContactPage() {
                     className="flex flex-col items-center justify-center py-12 text-center"
                   >
                     <CheckCircle className="w-16 h-16 text-green-400 mb-4" />
-                    <h4 className="text-xl font-semibold text-white">Message Sent!</h4>
-                    <p className="mt-2 text-white/60">We&apos;ll get back to you soon.</p>
+                    <h4 className="text-xl font-semibold text-white">{form.successTitle}</h4>
+                    <p className="mt-2 text-white/60">{form.successMessage}</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -154,11 +157,11 @@ export default function ContactPage() {
                         className="input-glass select-glass"
                       >
                         <option value="">Select a topic</option>
-                        <option value="volunteer">Volunteer Opportunities</option>
-                        <option value="partner">Partnership Inquiry</option>
-                        <option value="donation">Donation Information</option>
-                        <option value="event">Event Information</option>
-                        <option value="general">General Question</option>
+                        {form.subjects.map((subject) => (
+                          <option key={subject.value} value={subject.value}>
+                            {subject.label}
+                          </option>
+                        ))}
                       </select>
                     </div>
 

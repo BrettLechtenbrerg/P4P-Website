@@ -1,0 +1,37 @@
+{
+  "header": {
+    "badge": "Contact",
+    "title": "Get in Touch",
+    "description": "Have questions or want to get involved? We'd love to hear from you.",
+    "backgroundImage": "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80"
+  },
+  "contactInfo": {
+    "sectionTitle": "Let's Connect",
+    "sectionDescription": "Whether you have questions about our programs, want to volunteer, or are interested in partnering with us, we're here to help.",
+    "email": "director@murrayp4p.com",
+    "emailResponseTime": "We typically respond within 24-48 hours."
+  },
+  "form": {
+    "title": "Send a Message",
+    "subjects": [
+      { "value": "volunteer", "label": "Volunteer Opportunities" },
+      { "value": "partner", "label": "Partnership Inquiry" },
+      { "value": "donation", "label": "Donation Information" },
+      { "value": "event", "label": "Event Information" },
+      { "value": "general", "label": "General Question" }
+    ],
+    "successTitle": "Message Sent!",
+    "successMessage": "We'll get back to you soon."
+  },
+  "social": {
+    "title": "Follow Us",
+    "description": "Stay connected with Murray Partners 4 Prevention on social media.",
+    "links": [
+      { "platform": "Facebook", "url": "#" },
+      { "platform": "Instagram", "url": "#" },
+      { "platform": "Twitter", "url": "#" },
+      { "platform": "LinkedIn", "url": "#" },
+      { "platform": "YouTube", "url": "#" }
+    ]
+  }
+}

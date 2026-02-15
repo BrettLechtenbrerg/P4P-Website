@@ -7,72 +7,21 @@ import PageHeader from '@/components/PageHeader';
 import Footer from '@/components/Footer';
 import FadeIn from '@/components/animations/FadeIn';
 import StaggerChildren, { StaggerItem } from '@/components/animations/StaggerChildren';
-
-// Sample events - placeholder data
-const upcomingEvents = [
-  {
-    title: 'Coalition Monthly Meeting',
-    date: 'March 15, 2026',
-    time: '6:00 PM - 7:30 PM',
-    location: 'Murray City Hall',
-    description: 'Join us for our monthly coalition meeting. All community members are welcome to attend and learn about current initiatives.',
-    type: 'Meeting',
-  },
-  {
-    title: 'Youth Leadership Workshop',
-    date: 'March 22, 2026',
-    time: '10:00 AM - 2:00 PM',
-    location: 'Murray High School',
-    description: 'A hands-on workshop for young leaders to develop skills in community organizing and prevention advocacy.',
-    type: 'Workshop',
-  },
-  {
-    title: 'Community Health Fair',
-    date: 'April 5, 2026',
-    time: '9:00 AM - 3:00 PM',
-    location: 'Murray Park',
-    description: 'Free health screenings, wellness resources, and family activities for the Murray community.',
-    type: 'Community Event',
-  },
-  {
-    title: 'Prevention Education Seminar',
-    date: 'April 12, 2026',
-    time: '7:00 PM - 8:30 PM',
-    location: 'Murray Library',
-    description: 'Educational seminar on substance abuse prevention and resources available to Murray families.',
-    type: 'Seminar',
-  },
-];
-
-const pastEvents = [
-  {
-    title: 'Back to School Resource Fair',
-    date: 'August 2025',
-    description: 'Provided school supplies and resources to over 500 Murray families.',
-  },
-  {
-    title: 'Summer Safety Campaign',
-    date: 'June 2025',
-    description: 'Community-wide safety awareness initiative reaching thousands of residents.',
-  },
-  {
-    title: 'Youth Empowerment Conference',
-    date: 'May 2025',
-    description: 'Brought together 200+ young leaders for a day of workshops and networking.',
-  },
-];
+import eventsContent from '@/content/events.json';
 
 export default function EventsPage() {
+  const { header, upcomingEvents, pastEvents, cta } = eventsContent;
+
   return (
     <>
       <PageHeader
-        badge="Events"
-        title="Community Events"
-        description="Join us at upcoming events and help build a stronger Murray community."
+        badge={header.badge}
+        title={header.title}
+        description={header.description}
         breadcrumbs={[
           { label: 'Events' },
         ]}
-        backgroundImage="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=80"
+        backgroundImage={header.backgroundImage}
       />
 
       {/* Upcoming Events */}
@@ -94,7 +43,7 @@ export default function EventsPage() {
           </FadeIn>
 
           <StaggerChildren staggerDelay={0.1} className="space-y-6">
-            {upcomingEvents.map((event, index) => (
+            {upcomingEvents.map((event) => (
               <StaggerItem key={event.title}>
                 <motion.div
                   whileHover={{ y: -4 }}
@@ -173,18 +122,18 @@ export default function EventsPage() {
           <FadeIn direction="up">
             <div className="glass-strong rounded-3xl p-8 md:p-12 text-center">
               <Calendar className="w-12 h-12 text-orange-400 mx-auto mb-4" />
-              <h2 className="text-3xl font-bold text-white">Want to Host an Event?</h2>
+              <h2 className="text-3xl font-bold text-white">{cta.title}</h2>
               <p className="mt-4 text-white/60 max-w-2xl mx-auto">
-                Partner with us to bring prevention education and community resources to your neighborhood or organization.
+                {cta.description}
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Link href="/contact">
+                <Link href={cta.buttonLink}>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="btn-glow"
                   >
-                    Contact Us
+                    {cta.buttonText}
                     <ArrowRight className="w-4 h-4" />
                   </motion.button>
                 </Link>

@@ -1,105 +1,26 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import Image from 'next/image';
 import PageHeader from '@/components/PageHeader';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-
-// Coalition Officers - Placeholder data (to be filled in)
-const coalitionOfficers = [
-  {
-    name: 'Coalition Chair',
-    title: 'Chair',
-    subtitle: 'Leadership',
-    bio: 'Leading the Murray Partners 4 Prevention coalition to build a stronger, safer community for all Murray residents.',
-    email: 'director@murrayp4p.com',
-    image: null,
-  },
-  {
-    name: 'Vice Chair',
-    title: 'Vice Chair',
-    subtitle: 'Operations',
-    bio: 'Supporting coalition leadership and overseeing day-to-day operations and community outreach programs.',
-    email: 'director@murrayp4p.com',
-    image: null,
-  },
-  {
-    name: 'Secretary',
-    title: 'Secretary',
-    subtitle: 'Communications',
-    bio: 'Managing coalition communications, meeting minutes, and community correspondence.',
-    email: 'director@murrayp4p.com',
-    image: null,
-  },
-  {
-    name: 'Treasurer',
-    title: 'Treasurer',
-    subtitle: 'Finance',
-    bio: 'Overseeing coalition finances and ensuring responsible stewardship of community resources.',
-    email: 'director@murrayp4p.com',
-    image: null,
-  },
-];
-
-// Coalition Members - Placeholder data
-const coalitionMembers = [
-  {
-    name: 'Member Representative',
-    title: 'Community Representative',
-    organization: 'Salt Lake County Health Department',
-    bio: 'Representing public health initiatives and tobacco prevention programs.',
-    email: 'director@murrayp4p.com',
-  },
-  {
-    name: 'Member Representative',
-    title: 'Education Representative',
-    organization: 'Murray School District',
-    bio: 'Advocating for student safety and youth empowerment programs.',
-    email: 'director@murrayp4p.com',
-  },
-  {
-    name: 'Member Representative',
-    title: 'City Representative',
-    organization: 'Murray City',
-    bio: 'Coordinating city resources and community development initiatives.',
-    email: 'director@murrayp4p.com',
-  },
-  {
-    name: 'Member Representative',
-    title: 'Healthcare Representative',
-    organization: 'Intermountain Medical Center',
-    bio: 'Supporting community health and wellness programs.',
-    email: 'director@murrayp4p.com',
-  },
-  {
-    name: 'Member Representative',
-    title: 'Business Representative',
-    organization: 'Murray Chamber of Commerce',
-    bio: 'Connecting local businesses with community prevention initiatives.',
-    email: 'director@murrayp4p.com',
-  },
-  {
-    name: 'Member Representative',
-    title: 'Youth Representative',
-    organization: 'Murray Youth Community Council',
-    bio: 'Representing youth voices and student leadership development.',
-    email: 'director@murrayp4p.com',
-  },
-];
+import teamContent from '@/content/team.json';
 
 export default function TeamPage() {
+  const { header, officers, members, cta } = teamContent;
+
   return (
     <>
       <PageHeader
-        badge="Our Team"
-        title="Coalition Leadership"
-        description="Meet the dedicated community leaders who volunteer their time and expertise to guide Murray Partners 4 Prevention."
+        badge={header.badge}
+        title={header.title}
+        description={header.description}
         breadcrumbs={[
           { label: 'Team' },
         ]}
-        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
+        backgroundImage={header.backgroundImage}
       />
 
       {/* Coalition Officers */}
@@ -110,12 +31,12 @@ export default function TeamPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-white">Coalition Officers</h2>
-            <p className="mt-4 text-white/60">Our leadership team provides strategic direction and governance.</p>
+            <h2 className="text-3xl font-bold text-white">{officers.sectionTitle}</h2>
+            <p className="mt-4 text-white/60">{officers.sectionDescription}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {coalitionOfficers.map((member, index) => (
+            {officers.members.map((member, index) => (
               <motion.div
                 key={`${member.name}-${index}`}
                 initial={{ opacity: 0, y: 20 }}
@@ -167,12 +88,12 @@ export default function TeamPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-white">Coalition Members</h2>
-            <p className="mt-4 text-white/60">Representatives from our partner organizations working together for Murray.</p>
+            <h2 className="text-3xl font-bold text-white">{members.sectionTitle}</h2>
+            <p className="mt-4 text-white/60">{members.sectionDescription}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coalitionMembers.map((person, index) => (
+            {members.members.map((person, index) => (
               <motion.div
                 key={`${person.name}-${index}`}
                 initial={{ opacity: 0, y: 20 }}
@@ -210,16 +131,16 @@ export default function TeamPage() {
             animate={{ opacity: 1, y: 0 }}
             className="glass-strong rounded-3xl p-8 md:p-12 text-center"
           >
-            <h2 className="text-3xl font-bold text-white">Interested in Joining?</h2>
+            <h2 className="text-3xl font-bold text-white">{cta.title}</h2>
             <p className="mt-4 text-white/60 max-w-2xl mx-auto">
-              We welcome new members and partner organizations. Contact us to learn about opportunities to join the coalition and make a difference in Murray.
+              {cta.description}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Link href="/contact">
-                <button className="btn-glow">Contact Us</button>
+              <Link href={cta.primaryButtonLink}>
+                <button className="btn-glow">{cta.primaryButtonText}</button>
               </Link>
-              <Link href="/about">
-                <button className="btn-secondary">Learn More About Us</button>
+              <Link href={cta.secondaryButtonLink}>
+                <button className="btn-secondary">{cta.secondaryButtonText}</button>
               </Link>
             </div>
           </motion.div>
