@@ -3,9 +3,19 @@ import { NextResponse } from 'next/server';
 
 export async function GET(): Promise<NextResponse> {
   try {
+    // Check if token is configured
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      console.error('BLOB_READ_WRITE_TOKEN is not configured');
+      return NextResponse.json({
+        error: 'Blob storage not configured',
+        media: []
+      });
+    }
+
     // List all blobs in the uploads folder
     const { blobs } = await list({
       prefix: 'uploads/',
+      token: process.env.BLOB_READ_WRITE_TOKEN,
     });
 
     // Transform to our MediaFile format
@@ -15,20 +25,22 @@ export async function GET(): Promise<NextResponse> {
       url: blob.url,
       size: formatFileSize(blob.size),
       uploaded: formatDate(blob.uploadedAt),
+      uploadedAt: blob.uploadedAt,
     }));
 
     // Sort by upload date (newest first)
     media.sort((a, b) => {
-      const dateA = new Date(blobs.find(b => b.pathname === a.id)?.uploadedAt || 0);
-      const dateB = new Date(blobs.find(b => b.pathname === b.id)?.uploadedAt || 0);
-      return dateB.getTime() - dateA.getTime();
+      return new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime();
     });
 
-    return NextResponse.json({ media });
+    // Remove uploadedAt from response
+    const cleanMedia = media.map(({ uploadedAt, ...rest }) => rest);
+
+    return NextResponse.json({ media: cleanMedia });
   } catch (error) {
     console.error('Error listing media:', error);
     return NextResponse.json(
-      { error: 'Failed to load media', media: [] },
+      { error: String(error), media: [] },
       { status: 500 }
     );
   }

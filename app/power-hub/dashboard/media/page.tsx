@@ -21,6 +21,7 @@ export default function MediaPage() {
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [uploadError, setUploadError] = useState('');
+  const [loadError, setLoadError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Load existing media on mount
@@ -30,14 +31,21 @@ export default function MediaPage() {
 
   const loadMedia = async () => {
     setLoading(true);
+    setLoadError('');
     try {
       const response = await fetch('/api/power-hub/media');
       const data = await response.json();
+
+      if (data.error) {
+        setLoadError(data.error);
+      }
+
       if (data.media) {
         setMedia(data.media);
       }
     } catch (error) {
       console.error('Error loading media:', error);
+      setLoadError('Failed to load media: ' + String(error));
     }
     setLoading(false);
   };
@@ -50,6 +58,7 @@ export default function MediaPage() {
       const file = files[i];
 
       if (!file.type.startsWith('image/')) {
+        setUploadError('Only image files are allowed');
         continue;
       }
 
@@ -71,7 +80,7 @@ export default function MediaPage() {
         }
 
         const newFile: MediaFile = {
-          id: Date.now().toString() + '-' + i,
+          id: 'new-' + Date.now().toString() + '-' + i,
           name: data.filename || file.name,
           url: data.url,
           size: (file.size / 1024).toFixed(1) + ' KB',
@@ -81,7 +90,7 @@ export default function MediaPage() {
         setMedia((prev) => [newFile, ...prev]);
       } catch (error) {
         console.error('Upload error:', error);
-        setUploadError('Failed to upload file. Check console for details.');
+        setUploadError('Failed to upload file: ' + String(error));
       }
     }
 
@@ -116,7 +125,7 @@ export default function MediaPage() {
 
       <div className="p-8">
         {/* Actions Bar */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-4">
             <button
               onClick={() => fileInputRef.current?.click()}
@@ -173,7 +182,18 @@ export default function MediaPage() {
           </div>
         </div>
 
-        {/* Error Display */}
+        {/* Load Error Display */}
+        {loadError && (
+          <div className="flex items-center gap-3 p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-yellow-700 mb-6">
+            <AlertCircle size={20} />
+            <div>
+              <p className="font-medium">Could not load existing media</p>
+              <p className="text-sm">{loadError}</p>
+            </div>
+          </div>
+        )}
+
+        {/* Upload Error Display */}
         {uploadError && (
           <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 mb-6">
             <AlertCircle size={20} />
@@ -181,6 +201,12 @@ export default function MediaPage() {
               <p className="font-medium">Upload Error</p>
               <p className="text-sm">{uploadError}</p>
             </div>
+            <button
+              onClick={() => setUploadError('')}
+              className="ml-auto text-red-500 hover:text-red-700"
+            >
+              ✕
+            </button>
           </div>
         )}
 
@@ -216,12 +242,15 @@ export default function MediaPage() {
             <p className="text-gray-500">
               {searchQuery ? 'No files match your search' : 'No files uploaded yet'}
             </p>
+            <p className="text-sm text-gray-400 mt-2">
+              Upload an image to get started
+            </p>
           </div>
         )}
 
         {/* Media Grid */}
         {!loading && viewMode === 'grid' && filteredMedia.length > 0 && (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredMedia.map((file) => (
               <div key={file.id} className="bg-white rounded-xl border border-gray-200 p-3 group">
                 <div className="aspect-square relative rounded-lg overflow-hidden bg-gray-100 mb-3">
@@ -237,7 +266,8 @@ export default function MediaPage() {
                       type="text"
                       value={file.url}
                       readOnly
-                      className="flex-1 text-xs bg-transparent text-gray-600 truncate outline-none"
+                      onClick={(e) => (e.target as HTMLInputElement).select()}
+                      className="flex-1 text-xs bg-transparent text-gray-600 truncate outline-none cursor-text"
                     />
                     <button
                       onClick={() => copyUrl(file.url)}
@@ -291,7 +321,8 @@ export default function MediaPage() {
                       type="text"
                       value={file.url}
                       readOnly
-                      className="text-xs bg-transparent text-gray-600 truncate outline-none w-40"
+                      onClick={(e) => (e.target as HTMLInputElement).select()}
+                      className="text-xs bg-transparent text-gray-600 truncate outline-none w-40 cursor-text"
                     />
                   </div>
                   <button
