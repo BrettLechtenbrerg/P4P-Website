@@ -70,7 +70,7 @@ export default function AIAssistPage() {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="Paste or type your content here..."
-                className="w-full h-48 p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] resize-none"
+                className="w-full h-48 p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] resize-none text-gray-900 placeholder-gray-400"
               />
             </div>
 
@@ -83,7 +83,7 @@ export default function AIAssistPage() {
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   placeholder="What would you like AI to do with your content?"
-                  className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
+                  className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] text-gray-900 placeholder-gray-400"
                 />
                 <button
                   onClick={() => handleGenerate()}
