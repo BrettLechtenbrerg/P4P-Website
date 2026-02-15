@@ -136,7 +136,7 @@ export default function AIAssistPage() {
                     key={action.name}
                     onClick={() => handleGenerate(action.prompt)}
                     disabled={loading || !content.trim()}
-                    className="px-3 py-2 text-sm bg-gray-100 hover:bg-[#F27A21] hover:text-white rounded-lg transition-colors disabled:opacity-50"
+                    className="px-3 py-2 text-sm bg-gray-100 text-gray-900 hover:bg-[#F27A21] hover:text-white rounded-lg transition-colors disabled:opacity-50"
                   >
                     {action.name}
                   </button>
