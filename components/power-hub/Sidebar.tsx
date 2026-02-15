@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
   FileText,
+  FileJson,
   Image as ImageIcon,
   Sparkles,
   Settings,
@@ -13,6 +14,7 @@ import {
 
 const menuItems = [
   { name: 'Dashboard', href: '/power-hub/dashboard', icon: LayoutDashboard },
+  { name: 'Content', href: '/power-hub/dashboard/content', icon: FileJson },
   { name: 'Pages', href: '/power-hub/dashboard/pages', icon: FileText },
   { name: 'Media', href: '/power-hub/dashboard/media', icon: ImageIcon },
   { name: 'AI Assist', href: '/power-hub/dashboard/ai', icon: Sparkles },
