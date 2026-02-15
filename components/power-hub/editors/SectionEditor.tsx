@@ -71,7 +71,7 @@ export default function SectionEditor({
                 type="text"
                 value={section.headline}
                 onChange={(e) => updateField('headline', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
               />
             </div>
             <div>
@@ -80,7 +80,7 @@ export default function SectionEditor({
                 value={section.subheadline}
                 onChange={(e) => updateField('subheadline', e.target.value)}
                 rows={2}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] resize-none"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] resize-none"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -90,7 +90,7 @@ export default function SectionEditor({
                   type="text"
                   value={section.buttonText}
                   onChange={(e) => updateField('buttonText', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
                 />
               </div>
               <div>
@@ -99,7 +99,7 @@ export default function SectionEditor({
                   type="text"
                   value={section.buttonLink}
                   onChange={(e) => updateField('buttonLink', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
                 />
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function SectionEditor({
                 type="text"
                 value={section.title}
                 onChange={(e) => updateField('title', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
               />
             </div>
             <div>
@@ -135,7 +135,7 @@ export default function SectionEditor({
                 value={section.content}
                 onChange={(e) => updateField('content', e.target.value)}
                 rows={5}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] resize-none"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] resize-none"
               />
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function SectionEditor({
                 type="text"
                 value={section.title}
                 onChange={(e) => updateField('title', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
               />
             </div>
             <div>
@@ -159,7 +159,7 @@ export default function SectionEditor({
                 type="text"
                 value={section.subtitle}
                 onChange={(e) => updateField('subtitle', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
               />
             </div>
             <div>
@@ -176,7 +176,7 @@ export default function SectionEditor({
                         onUpdate(index, { ...section, features: newFeatures });
                       }}
                       placeholder="Feature title"
-                      className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20"
+                      className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20"
                     />
                     <textarea
                       value={feature.description}
@@ -187,7 +187,7 @@ export default function SectionEditor({
                       }}
                       placeholder="Feature description"
                       rows={2}
-                      className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 resize-none"
+                      className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 resize-none"
                     />
                   </div>
                 ))}
@@ -205,7 +205,7 @@ export default function SectionEditor({
                 type="text"
                 value={section.headline}
                 onChange={(e) => updateField('headline', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
               />
             </div>
             <div>
@@ -214,7 +214,7 @@ export default function SectionEditor({
                 type="text"
                 value={section.subheadline}
                 onChange={(e) => updateField('subheadline', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -224,7 +224,7 @@ export default function SectionEditor({
                   type="text"
                   value={section.buttonText}
                   onChange={(e) => updateField('buttonText', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
                 />
               </div>
               <div>
@@ -233,7 +233,7 @@ export default function SectionEditor({
                   type="text"
                   value={section.buttonLink}
                   onChange={(e) => updateField('buttonLink', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
                 />
               </div>
             </div>
@@ -253,8 +253,8 @@ export default function SectionEditor({
           <button className="cursor-grab text-gray-400 hover:text-gray-600">
             <GripVertical size={20} />
           </button>
-          <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
-            <Icon size={18} className="text-[#EA580C]" />
+          <div className="w-10 h-10 bg-[#F27A21]/10 rounded-lg flex items-center justify-center">
+            <Icon size={18} className="text-[#F27A21]" />
           </div>
           <div>
             <h3 className="font-semibold text-gray-900">{sectionLabels[section.type]}</h3>

@@ -70,7 +70,7 @@ export default function AIAssistPage() {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="Paste or type your content here..."
-                className="w-full h-48 p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] resize-none"
+                className="w-full h-48 p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] resize-none"
               />
             </div>
 
@@ -83,12 +83,12 @@ export default function AIAssistPage() {
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   placeholder="What would you like AI to do with your content?"
-                  className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                  className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
                 />
                 <button
                   onClick={() => handleGenerate()}
                   disabled={loading || !content.trim()}
-                  className="flex items-center gap-2 px-6 py-3 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors disabled:opacity-50"
+                  className="flex items-center gap-2 px-6 py-3 bg-[#F27A21] text-white rounded-lg hover:bg-[#F9A45A] transition-colors disabled:opacity-50"
                 >
                   {loading ? <Loader2 size={18} className="animate-spin" /> : <Sparkles size={18} />}
                   Generate
@@ -111,7 +111,7 @@ export default function AIAssistPage() {
                     </button>
                     <button
                       onClick={useAsInput}
-                      className="flex items-center gap-2 px-3 py-1.5 text-sm bg-[#EA580C]/10 text-[#EA580C] rounded-lg hover:bg-[#EA580C]/20"
+                      className="flex items-center gap-2 px-3 py-1.5 text-sm bg-[#F27A21]/10 text-[#F27A21] rounded-lg hover:bg-[#F27A21]/20"
                     >
                       Use as Input
                     </button>
@@ -127,7 +127,7 @@ export default function AIAssistPage() {
             {/* Quick Actions */}
             <div className="bg-white rounded-xl border border-gray-200 p-6">
               <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Zap size={20} className="text-[#EA580C]" />
+                <Zap size={20} className="text-[#F27A21]" />
                 Quick Actions
               </h2>
               <div className="grid grid-cols-2 gap-2">
@@ -136,7 +136,7 @@ export default function AIAssistPage() {
                     key={action.name}
                     onClick={() => handleGenerate(action.prompt)}
                     disabled={loading || !content.trim()}
-                    className="px-3 py-2 text-sm bg-gray-100 hover:bg-[#EA580C] hover:text-white rounded-lg transition-colors disabled:opacity-50"
+                    className="px-3 py-2 text-sm bg-gray-100 hover:bg-[#F27A21] hover:text-white rounded-lg transition-colors disabled:opacity-50"
                   >
                     {action.name}
                   </button>
@@ -145,8 +145,8 @@ export default function AIAssistPage() {
             </div>
 
             {/* Tips */}
-            <div className="bg-[#EA580C]/5 rounded-xl p-6">
-              <h3 className="font-semibold text-[#EA580C] mb-3">Pro Tips</h3>
+            <div className="bg-[#F27A21]/5 rounded-xl p-6">
+              <h3 className="font-semibold text-[#F27A21] mb-3">Pro Tips</h3>
               <ul className="text-sm text-gray-600 space-y-2">
                 <li>- Be specific with your prompts</li>
                 <li>- Use Quick Actions for common tasks</li>

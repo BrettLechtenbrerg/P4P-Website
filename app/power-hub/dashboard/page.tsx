@@ -33,13 +33,13 @@ export default function Dashboard() {
                   <div>
                     <p className="text-sm text-gray-500">{stat.name}</p>
                     <p className="text-3xl font-bold text-gray-900 mt-1">{stat.value}</p>
-                    <p className="text-xs text-[#EA580C] mt-2 flex items-center gap-1">
+                    <p className="text-xs text-[#F27A21] mt-2 flex items-center gap-1">
                       <TrendingUp size={12} />
                       {stat.change}
                     </p>
                   </div>
-                  <div className="w-12 h-12 bg-[#EA580C]/10 rounded-xl flex items-center justify-center">
-                    <Icon className="text-[#EA580C]" size={24} />
+                  <div className="w-12 h-12 bg-[#F27A21]/10 rounded-xl flex items-center justify-center">
+                    <Icon className="text-[#F27A21]" size={24} />
                   </div>
                 </div>
               </div>
@@ -55,7 +55,7 @@ export default function Dashboard() {
               <Link
                 key={action.name}
                 href={action.href}
-                className="bg-white rounded-xl border border-gray-200 p-6 hover:border-[#EA580C] hover:shadow-lg transition-all group"
+                className="bg-white rounded-xl border border-gray-200 p-6 hover:border-[#F27A21] hover:shadow-lg transition-all group"
               >
                 <div className={`w-12 h-12 ${action.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   <Icon className="text-white" size={24} />
@@ -77,7 +77,7 @@ export default function Dashboard() {
               href="/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-[#F27A21] text-white rounded-lg hover:bg-[#F9A45A] transition-colors"
             >
               <ExternalLink size={18} />
               View Live Site

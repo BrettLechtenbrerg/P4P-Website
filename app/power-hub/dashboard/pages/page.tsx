@@ -32,7 +32,7 @@ export default function PagesPage() {
         {/* Actions Bar */}
         <div className="flex items-center justify-between mb-6">
           <p className="text-gray-500">{pages.length} pages total</p>
-          <button className="flex items-center gap-2 px-4 py-2 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors">
+          <button className="flex items-center gap-2 px-4 py-2 bg-[#F27A21] text-white rounded-lg hover:bg-[#F9A45A] transition-colors">
             <Plus size={18} />
             New Page
           </button>
@@ -58,8 +58,8 @@ export default function PagesPage() {
                 >
                   <td className="py-4 px-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
-                        <FileText size={18} className="text-[#EA580C]" />
+                      <div className="w-10 h-10 bg-[#F27A21]/10 rounded-lg flex items-center justify-center">
+                        <FileText size={18} className="text-[#F27A21]" />
                       </div>
                       <span className="font-medium text-gray-900">{page.title}</span>
                     </div>

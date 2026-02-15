@@ -130,7 +130,7 @@ export const sampleHomePage: PageContent = {
       subheadline: 'Together, we can make a difference in our community.',
       buttonText: 'Get Involved',
       buttonLink: '/contact',
-      backgroundColor: '#EA580C'
+      backgroundColor: '#F27A21'
     }
   ]
 };

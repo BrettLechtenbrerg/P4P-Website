@@ -26,7 +26,7 @@ export default function DashboardLayout({
   if (loading) {
     return (
       <div className="w-full h-full min-h-screen bg-[#F5F5F5] flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-[#EA580C] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-[#F27A21] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }

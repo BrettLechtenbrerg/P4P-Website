@@ -137,7 +137,7 @@ export default function EditPage() {
           subheadline: 'Contact us today',
           buttonText: 'Contact Us',
           buttonLink: '/contact',
-          backgroundColor: '#EA580C'
+          backgroundColor: '#F27A21'
         };
         break;
       default:
@@ -151,7 +151,7 @@ export default function EditPage() {
   if (!page) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="w-8 h-8 border-4 border-[#EA580C] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-[#F27A21] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -200,7 +200,7 @@ export default function EditPage() {
             <button
               onClick={() => handleSave(true)}
               disabled={saving}
-              className="flex items-center gap-2 px-6 py-2 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-6 py-2 bg-[#F27A21] text-white rounded-lg hover:bg-[#F9A45A] transition-colors disabled:opacity-50"
             >
               <Rocket size={18} />
               Publish
@@ -221,7 +221,7 @@ export default function EditPage() {
                 type="text"
                 value={page.title}
                 onChange={(e) => setPage({ ...page, title: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
               />
             </div>
             <div>
@@ -230,7 +230,7 @@ export default function EditPage() {
                 type="text"
                 value={page.slug}
                 onChange={(e) => setPage({ ...page, slug: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21]"
               />
             </div>
           </div>
@@ -246,7 +246,7 @@ export default function EditPage() {
               <p className="text-gray-500 mb-4">No sections yet. Add your first section to get started.</p>
               <button
                 onClick={() => setShowAddSection(true)}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#F27A21] text-white rounded-lg hover:bg-[#F9A45A] transition-colors"
               >
                 <Plus size={18} />
                 Add Section
@@ -276,7 +276,7 @@ export default function EditPage() {
           <div className="relative">
             <button
               onClick={() => setShowAddSection(!showAddSection)}
-              className="w-full py-4 border-2 border-dashed border-gray-300 rounded-xl text-gray-500 hover:border-[#EA580C] hover:text-[#EA580C] hover:bg-[#EA580C]/5 transition-all flex items-center justify-center gap-2"
+              className="w-full py-4 border-2 border-dashed border-gray-300 rounded-xl text-gray-500 hover:border-[#F27A21] hover:text-[#F27A21] hover:bg-[#F27A21]/5 transition-all flex items-center justify-center gap-2"
             >
               <Plus size={20} />
               Add New Section
@@ -293,10 +293,10 @@ export default function EditPage() {
                       <button
                         key={sectionType.type}
                         onClick={() => addSection(sectionType.type)}
-                        className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:border-[#EA580C] hover:bg-[#EA580C]/5 transition-all text-left"
+                        className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:border-[#F27A21] hover:bg-[#F27A21]/5 transition-all text-left"
                       >
-                        <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
-                          <Icon size={18} className="text-[#EA580C]" />
+                        <div className="w-10 h-10 bg-[#F27A21]/10 rounded-lg flex items-center justify-center">
+                          <Icon size={18} className="text-[#F27A21]" />
                         </div>
                         <span className="font-medium">{sectionType.label}</span>
                       </button>

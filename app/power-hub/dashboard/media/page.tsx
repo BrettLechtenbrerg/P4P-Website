@@ -84,7 +84,7 @@ export default function MediaPage() {
             <button
               onClick={() => fileInputRef.current?.click()}
               disabled={uploading}
-              className="flex items-center gap-2 px-4 py-2 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-4 py-2 bg-[#F27A21] text-white rounded-lg hover:bg-[#F9A45A] transition-colors disabled:opacity-50"
             >
               {uploading ? <Loader2 size={18} className="animate-spin" /> : <Upload size={18} />}
               {uploading ? 'Uploading...' : 'Upload Files'}
@@ -107,7 +107,7 @@ export default function MediaPage() {
                 placeholder="Search files..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] w-64"
+                className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] w-64"
               />
             </div>
 
@@ -135,10 +135,10 @@ export default function MediaPage() {
           onDragLeave={(e) => { e.preventDefault(); setIsDragging(false); }}
           onClick={() => fileInputRef.current?.click()}
           className={`border-2 border-dashed rounded-xl p-8 mb-6 text-center transition-all cursor-pointer ${
-            isDragging ? 'border-[#EA580C] bg-[#EA580C]/5' : 'border-gray-300 hover:border-[#EA580C]'
+            isDragging ? 'border-[#F27A21] bg-[#F27A21]/5' : 'border-gray-300 hover:border-[#F27A21]'
           }`}
         >
-          <Upload size={40} className={`mx-auto mb-4 ${isDragging ? 'text-[#EA580C]' : 'text-gray-400'}`} />
+          <Upload size={40} className={`mx-auto mb-4 ${isDragging ? 'text-[#F27A21]' : 'text-gray-400'}`} />
           <p className="text-gray-600 font-medium">
             {isDragging ? 'Drop files here!' : 'Drag and drop files here'}
           </p>

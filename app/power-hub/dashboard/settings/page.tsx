@@ -24,8 +24,8 @@ export default function SettingsPage() {
           {/* Site Settings */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
-                <Globe size={20} className="text-[#EA580C]" />
+              <div className="w-10 h-10 bg-[#F27A21]/10 rounded-lg flex items-center justify-center">
+                <Globe size={20} className="text-[#F27A21]" />
               </div>
               <div>
                 <h2 className="text-lg font-semibold text-gray-900">Site Settings</h2>
@@ -42,7 +42,7 @@ export default function SettingsPage() {
                   type="text"
                   value={siteName}
                   onChange={(e) => setSiteName(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all"
                 />
               </div>
 
@@ -54,7 +54,7 @@ export default function SettingsPage() {
                   type="url"
                   value={siteUrl}
                   onChange={(e) => setSiteUrl(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all"
                 />
               </div>
             </div>
@@ -63,8 +63,8 @@ export default function SettingsPage() {
           {/* Appearance */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
-                <Palette size={20} className="text-[#EA580C]" />
+              <div className="w-10 h-10 bg-[#F27A21]/10 rounded-lg flex items-center justify-center">
+                <Palette size={20} className="text-[#F27A21]" />
               </div>
               <div>
                 <h2 className="text-lg font-semibold text-gray-900">Appearance</h2>
@@ -80,13 +80,13 @@ export default function SettingsPage() {
                 <div className="flex items-center gap-3">
                   <input
                     type="color"
-                    defaultValue="#EA580C"
+                    defaultValue="#F27A21"
                     className="w-12 h-12 rounded-lg border border-gray-200 cursor-pointer"
                   />
                   <input
                     type="text"
-                    defaultValue="#EA580C"
-                    className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all"
+                    defaultValue="#F27A21"
+                    className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all"
                   />
                 </div>
               </div>
@@ -96,8 +96,8 @@ export default function SettingsPage() {
           {/* Notifications */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
-                <Bell size={20} className="text-[#EA580C]" />
+              <div className="w-10 h-10 bg-[#F27A21]/10 rounded-lg flex items-center justify-center">
+                <Bell size={20} className="text-[#F27A21]" />
               </div>
               <div>
                 <h2 className="text-lg font-semibold text-gray-900">Notifications</h2>
@@ -108,11 +108,11 @@ export default function SettingsPage() {
             <div className="space-y-4">
               <label className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer">
                 <span className="font-medium">Email notifications for published changes</span>
-                <input type="checkbox" defaultChecked className="w-5 h-5 accent-[#EA580C]" />
+                <input type="checkbox" defaultChecked className="w-5 h-5 accent-[#F27A21]" />
               </label>
               <label className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer">
                 <span className="font-medium">Weekly activity summary</span>
-                <input type="checkbox" className="w-5 h-5 accent-[#EA580C]" />
+                <input type="checkbox" className="w-5 h-5 accent-[#F27A21]" />
               </label>
             </div>
           </div>
@@ -120,8 +120,8 @@ export default function SettingsPage() {
           {/* Security */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
-                <Shield size={20} className="text-[#EA580C]" />
+              <div className="w-10 h-10 bg-[#F27A21]/10 rounded-lg flex items-center justify-center">
+                <Shield size={20} className="text-[#F27A21]" />
               </div>
               <div>
                 <h2 className="text-lg font-semibold text-gray-900">Security</h2>
@@ -129,7 +129,7 @@ export default function SettingsPage() {
               </div>
             </div>
 
-            <button className="flex items-center gap-2 px-4 py-3 bg-gray-100 hover:bg-[#EA580C] hover:text-white rounded-lg transition-all">
+            <button className="flex items-center gap-2 px-4 py-3 bg-gray-100 hover:bg-[#F27A21] hover:text-white rounded-lg transition-all">
               <Key size={18} />
               Change Password
             </button>
@@ -140,7 +140,7 @@ export default function SettingsPage() {
             <button
               onClick={handleSave}
               disabled={saving}
-              className="flex items-center gap-2 px-6 py-3 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-6 py-3 bg-[#F27A21] text-white rounded-lg hover:bg-[#F9A45A] transition-colors disabled:opacity-50"
             >
               {saving ? (
                 <>

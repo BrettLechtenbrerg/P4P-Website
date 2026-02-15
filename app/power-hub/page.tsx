@@ -27,12 +27,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="w-full h-full min-h-screen bg-gradient-to-br from-[#EA580C] to-[#F97316] flex items-center justify-center p-4">
+    <div className="w-full h-full min-h-screen bg-gradient-to-br from-[#F27A21] to-[#F9A45A] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <div className="w-20 h-20 bg-[#EA580C] rounded-xl flex items-center justify-center">
+              <div className="w-20 h-20 bg-[#F27A21] rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-2xl">P4P</span>
               </div>
             </div>
@@ -49,7 +49,7 @@ export default function LoginPage() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all text-gray-900"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all text-gray-900"
                 placeholder="Enter your username"
                 required
               />
@@ -64,7 +64,7 @@ export default function LoginPage() {
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all pr-12 text-gray-900"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all pr-12 text-gray-900"
                   placeholder="Enter your password"
                   required
                 />
@@ -87,7 +87,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#EA580C] hover:bg-[#F97316] text-white py-3 px-4 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+              className="w-full bg-[#F27A21] hover:bg-[#F9A45A] text-white py-3 px-4 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
             >
               {loading ? (
                 <span>Logging in...</span>
@@ -102,7 +102,7 @@ export default function LoginPage() {
 
           <div className="mt-8 pt-6 border-t border-gray-200 text-center">
             <p className="text-xs text-gray-400">
-              Powered by <span className="font-medium text-[#EA580C]">Partners 4 Prevention</span>
+              Powered by <span className="font-medium text-[#F27A21]">Partners 4 Prevention</span>
             </p>
           </div>
         </div>
