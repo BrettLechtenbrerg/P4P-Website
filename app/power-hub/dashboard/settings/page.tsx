@@ -42,7 +42,7 @@ export default function SettingsPage() {
                   type="text"
                   value={siteName}
                   onChange={(e) => setSiteName(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all text-gray-900 placeholder-gray-400"
                 />
               </div>
 
@@ -54,7 +54,7 @@ export default function SettingsPage() {
                   type="url"
                   value={siteUrl}
                   onChange={(e) => setSiteUrl(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all text-gray-900 placeholder-gray-400"
                 />
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function SettingsPage() {
                   <input
                     type="text"
                     defaultValue="#F27A21"
-                    className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all"
+                    className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F27A21]/20 focus:border-[#F27A21] transition-all text-gray-900 placeholder-gray-400"
                   />
                 </div>
               </div>
@@ -107,11 +107,11 @@ export default function SettingsPage() {
 
             <div className="space-y-4">
               <label className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer">
-                <span className="font-medium">Email notifications for published changes</span>
+                <span className="font-medium text-gray-900">Email notifications for published changes</span>
                 <input type="checkbox" defaultChecked className="w-5 h-5 accent-[#F27A21]" />
               </label>
               <label className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer">
-                <span className="font-medium">Weekly activity summary</span>
+                <span className="font-medium text-gray-900">Weekly activity summary</span>
                 <input type="checkbox" className="w-5 h-5 accent-[#F27A21]" />
               </label>
             </div>
@@ -129,7 +129,7 @@ export default function SettingsPage() {
               </div>
             </div>
 
-            <button className="flex items-center gap-2 px-4 py-3 bg-gray-100 hover:bg-[#F27A21] hover:text-white rounded-lg transition-all">
+            <button className="flex items-center gap-2 px-4 py-3 bg-gray-100 text-gray-900 hover:bg-[#F27A21] hover:text-white rounded-lg transition-all font-medium">
               <Key size={18} />
               Change Password
             </button>
