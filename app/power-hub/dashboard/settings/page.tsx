@@ -1,136 +1,160 @@
 'use client';
 
-import Header from '@/components/Header';
-import { ExternalLink, Github, Globe, Info } from 'lucide-react';
+import { useState } from 'react';
+import Header from '@/components/power-hub/Header';
+import { Save, Globe, Palette, Bell, Shield, Key } from 'lucide-react';
 
 export default function SettingsPage() {
+  const [siteName, setSiteName] = useState('Partners 4 Prevention');
+  const [siteUrl, setSiteUrl] = useState('https://p4p-website.vercel.app');
+  const [saving, setSaving] = useState(false);
+
+  const handleSave = async () => {
+    setSaving(true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setSaving(false);
+  };
+
   return (
     <div>
-      <Header title="Settings" subtitle="Site information and configuration" />
+      <Header title="Settings" subtitle="Configure your Power Hub settings" />
 
       <div className="p-8">
-        <div className="">
-      {/* Site Info */}
-      <div className="bg-white rounded-2xl border border-gray-200 mb-6">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-            <Info className="w-5 h-5 text-orange-500" />
-            Site Information
-          </h2>
-        </div>
-        <div className="p-6 space-y-4">
-          <div className="flex items-center justify-between py-3 border-b border-gray-100">
-            <div>
-              <p className="font-medium text-gray-900">Site Name</p>
-              <p className="text-sm text-gray-500">Partners 4 Prevention</p>
+        <div className="max-w-3xl space-y-6">
+          {/* Site Settings */}
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
+                <Globe size={20} className="text-[#EA580C]" />
+              </div>
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Site Settings</h2>
+                <p className="text-sm text-gray-500">Basic configuration for your website</p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-between py-3 border-b border-gray-100">
-            <div>
-              <p className="font-medium text-gray-900">Live URL</p>
-              <p className="text-sm text-gray-500">p4p-website.vercel.app</p>
-            </div>
-            <a
-              href="https://p4p-website.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
-            >
-              <ExternalLink size={16} />
-              Visit
-            </a>
-          </div>
-          <div className="flex items-center justify-between py-3">
-            <div>
-              <p className="font-medium text-gray-900">GitHub Repository</p>
-              <p className="text-sm text-gray-500">BrettLechtenbrerg/P4P-Website</p>
-            </div>
-            <a
-              href="https://github.com/BrettLechtenbrerg/P4P-Website"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
-            >
-              <Github size={16} />
-              View
-            </a>
-          </div>
-        </div>
-      </div>
 
-      {/* Quick Links */}
-      <div className="bg-white rounded-2xl border border-gray-200">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-            <Globe className="w-5 h-5 text-orange-500" />
-            Quick Links
-          </h2>
-        </div>
-        <div className="p-6 grid sm:grid-cols-2 gap-4">
-          <a
-            href="/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 bg-gray-50 hover:bg-orange-50 rounded-xl transition-colors group"
-          >
-            <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center group-hover:bg-orange-500 transition-colors">
-              <Globe className="w-5 h-5 text-orange-600 group-hover:text-white transition-colors" />
-            </div>
-            <div>
-              <p className="font-medium text-gray-900">Homepage</p>
-              <p className="text-sm text-gray-500">View the main page</p>
-            </div>
-          </a>
-          <a
-            href="/about"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 bg-gray-50 hover:bg-orange-50 rounded-xl transition-colors group"
-          >
-            <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center group-hover:bg-orange-500 transition-colors">
-              <Globe className="w-5 h-5 text-orange-600 group-hover:text-white transition-colors" />
-            </div>
-            <div>
-              <p className="font-medium text-gray-900">About Page</p>
-              <p className="text-sm text-gray-500">View the about page</p>
-            </div>
-          </a>
-          <a
-            href="/contact"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 bg-gray-50 hover:bg-orange-50 rounded-xl transition-colors group"
-          >
-            <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center group-hover:bg-orange-500 transition-colors">
-              <Globe className="w-5 h-5 text-orange-600 group-hover:text-white transition-colors" />
-            </div>
-            <div>
-              <p className="font-medium text-gray-900">Contact Page</p>
-              <p className="text-sm text-gray-500">View the contact page</p>
-            </div>
-          </a>
-          <a
-            href="/team"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 bg-gray-50 hover:bg-orange-50 rounded-xl transition-colors group"
-          >
-            <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center group-hover:bg-orange-500 transition-colors">
-              <Globe className="w-5 h-5 text-orange-600 group-hover:text-white transition-colors" />
-            </div>
-            <div>
-              <p className="font-medium text-gray-900">Team Page</p>
-              <p className="text-sm text-gray-500">View the team page</p>
-            </div>
-          </a>
-        </div>
-      </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Site Name
+                </label>
+                <input
+                  type="text"
+                  value={siteName}
+                  onChange={(e) => setSiteName(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all"
+                />
+              </div>
 
-      {/* Power Hub Info */}
-      <div className="mt-8 text-center text-sm text-gray-500">
-        <p>Power Hub v2.0</p>
-        <p className="mt-1">Full feature parity with TSAI Power Hub</p>
-      </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Site URL
+                </label>
+                <input
+                  type="url"
+                  value={siteUrl}
+                  onChange={(e) => setSiteUrl(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Appearance */}
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
+                <Palette size={20} className="text-[#EA580C]" />
+              </div>
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Appearance</h2>
+                <p className="text-sm text-gray-500">Customize the look and feel</p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Primary Color
+                </label>
+                <div className="flex items-center gap-3">
+                  <input
+                    type="color"
+                    defaultValue="#EA580C"
+                    className="w-12 h-12 rounded-lg border border-gray-200 cursor-pointer"
+                  />
+                  <input
+                    type="text"
+                    defaultValue="#EA580C"
+                    className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Notifications */}
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
+                <Bell size={20} className="text-[#EA580C]" />
+              </div>
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Notifications</h2>
+                <p className="text-sm text-gray-500">Manage your notification preferences</p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <label className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer">
+                <span className="font-medium">Email notifications for published changes</span>
+                <input type="checkbox" defaultChecked className="w-5 h-5 accent-[#EA580C]" />
+              </label>
+              <label className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer">
+                <span className="font-medium">Weekly activity summary</span>
+                <input type="checkbox" className="w-5 h-5 accent-[#EA580C]" />
+              </label>
+            </div>
+          </div>
+
+          {/* Security */}
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
+                <Shield size={20} className="text-[#EA580C]" />
+              </div>
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Security</h2>
+                <p className="text-sm text-gray-500">Manage access and security settings</p>
+              </div>
+            </div>
+
+            <button className="flex items-center gap-2 px-4 py-3 bg-gray-100 hover:bg-[#EA580C] hover:text-white rounded-lg transition-all">
+              <Key size={18} />
+              Change Password
+            </button>
+          </div>
+
+          {/* Save Button */}
+          <div className="flex justify-end">
+            <button
+              onClick={handleSave}
+              disabled={saving}
+              className="flex items-center gap-2 px-6 py-3 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors disabled:opacity-50"
+            >
+              {saving ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Saving...
+                </>
+              ) : (
+                <>
+                  <Save size={18} />
+                  Save Changes
+                </>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>

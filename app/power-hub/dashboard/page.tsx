@@ -1,158 +1,88 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import Header from '@/components/power-hub/Header';
 import Link from 'next/link';
-import Header from '@/components/Header';
-import { FileJson, Rocket, ExternalLink, Clock, Edit3, FileText, Image, Sparkles } from 'lucide-react';
+import { FileText, Image, Sparkles, Settings, TrendingUp, Clock, ExternalLink } from 'lucide-react';
 
-interface ContentFile {
-  filename: string;
-  lastModified: string;
-}
+const stats = [
+  { name: 'Total Pages', value: '5', icon: FileText, change: 'Active' },
+  { name: 'Media Files', value: '0', icon: Image, change: 'Upload images' },
+  { name: 'AI Assists', value: '0', icon: Sparkles, change: 'Try AI writing' },
+];
 
-export default function PowerHubDashboardPage() {
-  const [contentFiles, setContentFiles] = useState<ContentFile[]>([]);
-  const [loading, setLoading] = useState(true);
+const quickActions = [
+  { name: 'Edit Pages', href: '/power-hub/dashboard/pages', icon: FileText, color: 'bg-blue-500' },
+  { name: 'Upload Media', href: '/power-hub/dashboard/media', icon: Image, color: 'bg-purple-500' },
+  { name: 'AI Assist', href: '/power-hub/dashboard/ai', icon: Sparkles, color: 'bg-green-500' },
+  { name: 'Settings', href: '/power-hub/dashboard/settings', icon: Settings, color: 'bg-gray-500' },
+];
 
-  useEffect(() => {
-    fetch('/api/power-hub/content')
-      .then((res) => res.json())
-      .then((data) => {
-        setContentFiles(data.files || []);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
-
-  const formatTimeAgo = (dateString: string) => {
-    const date = new Date(dateString);
-    const now = new Date();
-    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-
-    if (seconds < 60) return 'Just now';
-    if (seconds < 3600) return Math.floor(seconds / 60) + ' min ago';
-    if (seconds < 86400) return Math.floor(seconds / 3600) + ' hours ago';
-    return date.toLocaleDateString();
-  };
-
+export default function Dashboard() {
   return (
     <div>
       <Header title="Dashboard" subtitle="Welcome to your Power Hub" />
 
       <div className="p-8">
-        <div className="">
-        {/* Quick Actions */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <Link
-          href="/power-hub/dashboard/pages"
-          className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
-        >
-          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-4 group-hover:bg-orange-500 transition-colors">
-            <FileText className="w-6 h-6 text-orange-600 group-hover:text-white transition-colors" />
-          </div>
-          <h3 className="font-semibold text-gray-900">Edit Pages</h3>
-          <p className="text-sm text-gray-500 mt-1">Visual page editor with sections</p>
-        </Link>
-
-        <Link
-          href="/power-hub/dashboard/content"
-          className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
-        >
-          <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
-            <Edit3 className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
-          </div>
-          <h3 className="font-semibold text-gray-900">Edit JSON Content</h3>
-          <p className="text-sm text-gray-500 mt-1">Direct content file editing</p>
-        </Link>
-
-        <Link
-          href="/power-hub/dashboard/ai"
-          className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
-        >
-          <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-4 group-hover:bg-purple-500 transition-colors">
-            <Sparkles className="w-6 h-6 text-purple-600 group-hover:text-white transition-colors" />
-          </div>
-          <h3 className="font-semibold text-gray-900">AI Assist</h3>
-          <p className="text-sm text-gray-500 mt-1">Generate and improve content</p>
-        </Link>
-
-        <Link
-          href="/power-hub/dashboard/media"
-          className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
-        >
-          <div className="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center mb-4 group-hover:bg-pink-500 transition-colors">
-            <Image className="w-6 h-6 text-pink-600 group-hover:text-white transition-colors" />
-          </div>
-          <h3 className="font-semibold text-gray-900">Media Library</h3>
-          <p className="text-sm text-gray-500 mt-1">Upload and manage images</p>
-        </Link>
-
-        <a
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
-        >
-          <div className="w-12 h-12 rounded-xl bg-cyan-100 flex items-center justify-center mb-4 group-hover:bg-cyan-500 transition-colors">
-            <ExternalLink className="w-6 h-6 text-cyan-600 group-hover:text-white transition-colors" />
-          </div>
-          <h3 className="font-semibold text-gray-900">View Live Site</h3>
-          <p className="text-sm text-gray-500 mt-1">See your website as visitors see it</p>
-        </a>
-
-        <Link
-          href="/power-hub/dashboard/content?deploy=true"
-          className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
-        >
-          <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4 group-hover:bg-green-500 transition-colors">
-            <Rocket className="w-6 h-6 text-green-600 group-hover:text-white transition-colors" />
-          </div>
-          <h3 className="font-semibold text-gray-900">Deploy Changes</h3>
-          <p className="text-sm text-gray-500 mt-1">Publish your updates to the live site</p>
-        </Link>
-      </div>
-
-      {/* Content Files */}
-      <div className="bg-white rounded-2xl border border-gray-200">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-            <FileJson className="w-5 h-5 text-orange-500" />
-            Content Files
-          </h2>
-        </div>
-
-        {loading ? (
-          <div className="p-8 text-center text-gray-500">Loading...</div>
-        ) : contentFiles.length === 0 ? (
-          <div className="p-8 text-center text-gray-500">No content files found</div>
-        ) : (
-          <div className="divide-y divide-gray-100">
-            {contentFiles.map((file) => (
-              <Link
-                key={file.filename}
-                href={`/power-hub/dashboard/content/${file.filename.replace('.json', '')}`}
-                className="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center">
-                    <FileJson className="w-5 h-5 text-orange-600" />
-                  </div>
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div key={stat.name} className="bg-white rounded-xl border border-gray-200 p-6">
+                <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-gray-900 capitalize">
-                      {file.filename.replace('.json', '')}
+                    <p className="text-sm text-gray-500">{stat.name}</p>
+                    <p className="text-3xl font-bold text-gray-900 mt-1">{stat.value}</p>
+                    <p className="text-xs text-[#EA580C] mt-2 flex items-center gap-1">
+                      <TrendingUp size={12} />
+                      {stat.change}
                     </p>
-                    <p className="text-sm text-gray-500 flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {formatTimeAgo(file.lastModified)}
-                    </p>
+                  </div>
+                  <div className="w-12 h-12 bg-[#EA580C]/10 rounded-xl flex items-center justify-center">
+                    <Icon className="text-[#EA580C]" size={24} />
                   </div>
                 </div>
-                <Edit3 className="w-5 h-5 text-gray-400" />
-              </Link>
-            ))}
-          </div>
-        )}
+              </div>
+            );
+          })}
         </div>
+
+        {/* Quick Actions */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {quickActions.map((action) => {
+            const Icon = action.icon;
+            return (
+              <Link
+                key={action.name}
+                href={action.href}
+                className="bg-white rounded-xl border border-gray-200 p-6 hover:border-[#EA580C] hover:shadow-lg transition-all group"
+              >
+                <div className={`w-12 h-12 ${action.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <Icon className="text-white" size={24} />
+                </div>
+                <h3 className="font-semibold text-gray-900">{action.name}</h3>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* View Live Site */}
+        <div className="bg-white rounded-xl border border-gray-200 p-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-gray-900">Partners 4 Prevention Website</h2>
+              <p className="text-gray-500 mt-1">View your live website</p>
+            </div>
+            <a
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors"
+            >
+              <ExternalLink size={18} />
+              View Live Site
+            </a>
+          </div>
         </div>
       </div>
     </div>

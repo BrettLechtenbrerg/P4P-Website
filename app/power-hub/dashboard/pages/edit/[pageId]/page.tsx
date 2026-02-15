@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, use } from 'react';
-import { useRouter } from 'next/navigation';
-import SectionEditor from '@/components/editors/SectionEditor';
+import { useState, useEffect } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import SectionEditor from '@/components/power-hub/editors/SectionEditor';
 import { PageContent, PageSection, sampleHomePage } from '@/types/content';
 import {
   ArrowLeft,
@@ -24,13 +24,10 @@ const sectionTypes = [
   { type: 'cta', label: 'Call to Action', icon: Megaphone },
 ];
 
-export default function EditPage({
-  params,
-}: {
-  params: Promise<{ pageId: string }>;
-}) {
-  const { pageId } = use(params);
+export default function EditPage() {
+  const params = useParams();
   const router = useRouter();
+  const pageId = params.pageId as string;
 
   const [page, setPage] = useState<PageContent | null>(null);
   const [saving, setSaving] = useState(false);
@@ -38,14 +35,14 @@ export default function EditPage({
   const [showAddSection, setShowAddSection] = useState(false);
 
   useEffect(() => {
-    // Load page data
+    // Load page data (mock for now)
     if (pageId === 'home') {
       setPage(sampleHomePage);
     } else {
       // Create empty page for other IDs
       setPage({
         id: pageId,
-        title: pageId.charAt(0).toUpperCase() + pageId.slice(1).replace(/-/g, ' '),
+        title: pageId.charAt(0).toUpperCase() + pageId.slice(1),
         slug: `/${pageId}`,
         status: 'draft',
         lastEdited: new Date().toISOString(),
@@ -69,7 +66,7 @@ export default function EditPage({
       setPage(updatedPage as PageContent);
 
       // Save to localStorage
-      localStorage.setItem(`p4p_page_${pageId}`, JSON.stringify(updatedPage));
+      localStorage.setItem(`page_${pageId}`, JSON.stringify(updatedPage));
     }
 
     setSaving(false);
@@ -154,13 +151,13 @@ export default function EditPage({
   if (!page) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-[#EA580C] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-[#F5F5F5]">
       {/* Top Bar */}
       <div className="bg-white border-b border-gray-200 px-6 py-4 sticky top-0 z-10">
         <div className="flex items-center justify-between">
@@ -186,8 +183,8 @@ export default function EditPage({
 
           <div className="flex items-center gap-3">
             <button
-              onClick={() => window.open(`/power-hub/preview/${pageId}`, '_blank')}
-              className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+              onClick={() => window.open(`/preview/${pageId}`, '_blank')}
+              className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
             >
               <Eye size={18} />
               Preview
@@ -195,7 +192,7 @@ export default function EditPage({
             <button
               onClick={() => handleSave(false)}
               disabled={saving}
-              className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50"
             >
               {saved ? <Check size={18} className="text-green-600" /> : <Save size={18} />}
               {saving ? 'Saving...' : saved ? 'Saved!' : 'Save Draft'}
@@ -203,7 +200,7 @@ export default function EditPage({
             <button
               onClick={() => handleSave(true)}
               disabled={saving}
-              className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium rounded-xl hover:from-orange-600 hover:to-orange-700 disabled:opacity-50 transition-all"
+              className="flex items-center gap-2 px-6 py-2 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors disabled:opacity-50"
             >
               <Rocket size={18} />
               Publish
@@ -213,9 +210,9 @@ export default function EditPage({
       </div>
 
       {/* Editor Area */}
-      <div className=" p-8">
+      <div className="max-w-4xl mx-auto p-8">
         {/* Page Settings */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
+        <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Page Settings</h2>
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -224,7 +221,7 @@ export default function EditPage({
                 type="text"
                 value={page.title}
                 onChange={(e) => setPage({ ...page, title: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
               />
             </div>
             <div>
@@ -233,7 +230,7 @@ export default function EditPage({
                 type="text"
                 value={page.slug}
                 onChange={(e) => setPage({ ...page, slug: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C]"
               />
             </div>
           </div>
@@ -244,12 +241,12 @@ export default function EditPage({
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Page Sections</h2>
 
           {page.sections.length === 0 ? (
-            <div className="bg-white rounded-2xl border border-gray-200 p-12 text-center">
+            <div className="bg-white rounded-xl border border-gray-200 p-6 text-center py-12">
               <Layout size={48} className="mx-auto text-gray-300 mb-4" />
               <p className="text-gray-500 mb-4">No sections yet. Add your first section to get started.</p>
               <button
                 onClick={() => setShowAddSection(true)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#EA580C] text-white rounded-lg hover:bg-[#F97316] transition-colors"
               >
                 <Plus size={18} />
                 Add Section
@@ -279,7 +276,7 @@ export default function EditPage({
           <div className="relative">
             <button
               onClick={() => setShowAddSection(!showAddSection)}
-              className="w-full py-4 border-2 border-dashed border-gray-300 rounded-xl text-gray-500 hover:border-orange-500 hover:text-orange-600 hover:bg-orange-50 transition-all flex items-center justify-center gap-2"
+              className="w-full py-4 border-2 border-dashed border-gray-300 rounded-xl text-gray-500 hover:border-[#EA580C] hover:text-[#EA580C] hover:bg-[#EA580C]/5 transition-all flex items-center justify-center gap-2"
             >
               <Plus size={20} />
               Add New Section
@@ -296,10 +293,10 @@ export default function EditPage({
                       <button
                         key={sectionType.type}
                         onClick={() => addSection(sectionType.type)}
-                        className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition-all text-left"
+                        className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:border-[#EA580C] hover:bg-[#EA580C]/5 transition-all text-left"
                       >
-                        <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                          <Icon size={18} className="text-orange-600" />
+                        <div className="w-10 h-10 bg-[#EA580C]/10 rounded-lg flex items-center justify-center">
+                          <Icon size={18} className="text-[#EA580C]" />
                         </div>
                         <span className="font-medium">{sectionType.label}</span>
                       </button>

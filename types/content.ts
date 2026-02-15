@@ -1,4 +1,4 @@
-// Content types for the Power Hub CMS
+// Content types for the CMS
 
 export interface ImageField {
   url: string;
@@ -88,10 +88,10 @@ export const sampleHomePage: PageContent = {
   sections: [
     {
       type: 'hero',
-      headline: 'Partners 4 Prevention',
-      subheadline: 'Working together to create healthier, safer communities through collaborative prevention strategies.',
+      headline: 'Partners 4 Prevention Coalition',
+      subheadline: 'Working together to create a safer, healthier community through prevention and education.',
       buttonText: 'Get Involved',
-      buttonLink: '/get-involved',
+      buttonLink: '/contact',
       backgroundImage: {
         url: '/images/hero-bg.jpg',
         alt: 'Hero background'
@@ -99,28 +99,28 @@ export const sampleHomePage: PageContent = {
     },
     {
       type: 'text',
-      title: 'About Our Coalition',
-      content: 'Partners 4 Prevention brings together community leaders, healthcare providers, educators, and families to address critical health and safety issues in our region.'
+      title: 'Our Mission',
+      content: 'Partners 4 Prevention Coalition brings together community leaders, organizations, and individuals to prevent substance abuse and promote mental health awareness in our community.'
     },
     {
       type: 'features',
-      title: 'Our Focus Areas',
-      subtitle: 'What we work on',
+      title: 'Our Programs',
+      subtitle: 'Making a difference',
       features: [
         {
-          icon: 'shield',
-          title: 'Substance Prevention',
-          description: 'Education and resources for substance abuse prevention.'
+          icon: 'heart',
+          title: 'Youth Prevention',
+          description: 'Evidence-based programs to help young people make healthy choices.'
         },
         {
           icon: 'users',
           title: 'Community Outreach',
-          description: 'Connecting with families and organizations across the region.'
+          description: 'Connecting resources and support throughout our community.'
         },
         {
-          icon: 'rocket',
-          title: 'Youth Programs',
-          description: 'Engaging young people in positive activities and leadership.'
+          icon: 'book',
+          title: 'Education & Training',
+          description: 'Workshops and training for parents, educators, and community members.'
         }
       ]
     },
@@ -128,7 +128,7 @@ export const sampleHomePage: PageContent = {
       type: 'cta',
       headline: 'Join Our Coalition',
       subheadline: 'Together, we can make a difference in our community.',
-      buttonText: 'Contact Us',
+      buttonText: 'Get Involved',
       buttonLink: '/contact',
       backgroundColor: '#EA580C'
     }

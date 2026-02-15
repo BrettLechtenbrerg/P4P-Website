@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Power Hub | Partners 4 Prevention',
-  description: 'Manage your website content',
-  robots: 'noindex, nofollow', // Hide from search engines
+  description: 'Content Management System for P4P',
+  robots: 'noindex, nofollow',
 };
 
 export default function PowerHubLayout({
@@ -11,5 +11,5 @@ export default function PowerHubLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <>{children}</>;
 }
