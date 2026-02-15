@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import Header from '@/components/power-hub/Header';
-import { Upload, Grid, List, Search, Trash2, Copy, Check, Loader2, AlertCircle } from 'lucide-react';
+import { Upload, Grid, List, Search, Trash2, Copy, Check, Loader2, AlertCircle, RefreshCw } from 'lucide-react';
 
 interface MediaFile {
   id: string;
@@ -16,12 +16,31 @@ export default function MediaPage() {
   const [media, setMedia] = useState<MediaFile[]>([]);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [uploading, setUploading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [uploadError, setUploadError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const [uploadError, setUploadError] = useState('');
+  // Load existing media on mount
+  useEffect(() => {
+    loadMedia();
+  }, []);
+
+  const loadMedia = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/power-hub/media');
+      const data = await response.json();
+      if (data.media) {
+        setMedia(data.media);
+      }
+    } catch (error) {
+      console.error('Error loading media:', error);
+    }
+    setLoading(false);
+  };
 
   const handleFiles = useCallback(async (files: FileList) => {
     setUploading(true);
@@ -107,6 +126,14 @@ export default function MediaPage() {
               {uploading ? <Loader2 size={18} className="animate-spin" /> : <Upload size={18} />}
               {uploading ? 'Uploading...' : 'Upload Files'}
             </button>
+            <button
+              onClick={loadMedia}
+              disabled={loading}
+              className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50"
+            >
+              <RefreshCw size={18} className={loading ? 'animate-spin' : ''} />
+              Refresh
+            </button>
             <input
               ref={fileInputRef}
               type="file"
@@ -174,8 +201,16 @@ export default function MediaPage() {
           <p className="text-sm text-gray-400 mt-1">or click to browse</p>
         </div>
 
+        {/* Loading State */}
+        {loading && (
+          <div className="text-center py-12">
+            <Loader2 size={48} className="mx-auto text-[#F27A21] animate-spin mb-4" />
+            <p className="text-gray-500">Loading media...</p>
+          </div>
+        )}
+
         {/* Empty State */}
-        {filteredMedia.length === 0 && (
+        {!loading && filteredMedia.length === 0 && (
           <div className="text-center py-12">
             <Upload size={48} className="mx-auto text-gray-300 mb-4" />
             <p className="text-gray-500">
@@ -185,51 +220,91 @@ export default function MediaPage() {
         )}
 
         {/* Media Grid */}
-        {viewMode === 'grid' && filteredMedia.length > 0 && (
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {!loading && viewMode === 'grid' && filteredMedia.length > 0 && (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredMedia.map((file) => (
-              <div key={file.id} className="bg-white rounded-xl border border-gray-200 p-2 group">
-                <div className="aspect-square relative rounded-lg overflow-hidden bg-gray-100 mb-2">
+              <div key={file.id} className="bg-white rounded-xl border border-gray-200 p-3 group">
+                <div className="aspect-square relative rounded-lg overflow-hidden bg-gray-100 mb-3">
                   <img src={file.url} alt={file.name} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                </div>
+                <p className="text-sm font-medium truncate mb-1">{file.name}</p>
+                <p className="text-xs text-gray-400 mb-3">{file.size} • {file.uploaded}</p>
+
+                {/* Always visible URL and actions */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-1 p-2 bg-gray-50 rounded-lg">
+                    <input
+                      type="text"
+                      value={file.url}
+                      readOnly
+                      className="flex-1 text-xs bg-transparent text-gray-600 truncate outline-none"
+                    />
                     <button
                       onClick={() => copyUrl(file.url)}
-                      className="p-2 bg-white rounded-lg hover:bg-gray-100"
+                      className="p-1.5 hover:bg-gray-200 rounded transition-colors flex-shrink-0"
+                      title="Copy URL"
                     >
-                      {copiedUrl === file.url ? <Check size={16} className="text-green-600" /> : <Copy size={16} />}
+                      {copiedUrl === file.url ? (
+                        <Check size={14} className="text-green-600" />
+                      ) : (
+                        <Copy size={14} className="text-gray-500" />
+                      )}
+                    </button>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => copyUrl(file.url)}
+                      className="flex-1 flex items-center justify-center gap-1.5 py-2 bg-[#F27A21] text-white text-sm rounded-lg hover:bg-[#F9A45A] transition-colors"
+                    >
+                      {copiedUrl === file.url ? <Check size={14} /> : <Copy size={14} />}
+                      {copiedUrl === file.url ? 'Copied!' : 'Copy URL'}
                     </button>
                     <button
                       onClick={() => deleteFile(file.id)}
-                      className="p-2 bg-white rounded-lg hover:bg-red-100"
+                      className="p-2 border border-gray-200 rounded-lg hover:bg-red-50 hover:border-red-200 transition-colors"
+                      title="Delete"
                     >
-                      <Trash2 size={16} className="text-red-500" />
+                      <Trash2 size={14} className="text-red-500" />
                     </button>
                   </div>
                 </div>
-                <p className="text-sm font-medium truncate">{file.name}</p>
-                <p className="text-xs text-gray-400">{file.size}</p>
               </div>
             ))}
           </div>
         )}
 
         {/* Media List */}
-        {viewMode === 'list' && filteredMedia.length > 0 && (
+        {!loading && viewMode === 'list' && filteredMedia.length > 0 && (
           <div className="bg-white rounded-xl border border-gray-200">
             {filteredMedia.map((file) => (
-              <div key={file.id} className="flex items-center justify-between p-4 border-b border-gray-100 last:border-0">
-                <div className="flex items-center gap-4">
-                  <img src={file.url} alt={file.name} className="w-12 h-12 rounded-lg object-cover" />
-                  <div>
-                    <p className="font-medium">{file.name}</p>
-                    <p className="text-sm text-gray-500">{file.size} - {file.uploaded}</p>
+              <div key={file.id} className="flex items-center justify-between p-4 border-b border-gray-100 last:border-0 gap-4">
+                <div className="flex items-center gap-4 flex-1 min-w-0">
+                  <img src={file.url} alt={file.name} className="w-12 h-12 rounded-lg object-cover flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium truncate">{file.name}</p>
+                    <p className="text-sm text-gray-500">{file.size} • {file.uploaded}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <button onClick={() => copyUrl(file.url)} className="p-2 hover:bg-gray-100 rounded-lg">
-                    {copiedUrl === file.url ? <Check size={16} className="text-green-600" /> : <Copy size={16} />}
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  <div className="hidden md:flex items-center gap-1 p-2 bg-gray-50 rounded-lg max-w-xs">
+                    <input
+                      type="text"
+                      value={file.url}
+                      readOnly
+                      className="text-xs bg-transparent text-gray-600 truncate outline-none w-40"
+                    />
+                  </div>
+                  <button
+                    onClick={() => copyUrl(file.url)}
+                    className="flex items-center gap-1.5 px-3 py-2 bg-[#F27A21] text-white text-sm rounded-lg hover:bg-[#F9A45A] transition-colors"
+                  >
+                    {copiedUrl === file.url ? <Check size={14} /> : <Copy size={14} />}
+                    {copiedUrl === file.url ? 'Copied!' : 'Copy URL'}
                   </button>
-                  <button onClick={() => deleteFile(file.id)} className="p-2 hover:bg-red-100 rounded-lg">
+                  <button
+                    onClick={() => deleteFile(file.id)}
+                    className="p-2 hover:bg-red-100 rounded-lg transition-colors"
+                  >
                     <Trash2 size={16} className="text-red-500" />
                   </button>
                 </div>
