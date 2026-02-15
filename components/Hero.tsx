@@ -65,10 +65,17 @@ export default function Hero() {
         {/* Main Mission Statement */}
         <FadeIn direction="up" delay={0.1}>
           <h1 className="mt-8 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight max-w-5xl mx-auto">
-            <span className="text-white">{hero.headline.split('empowered to thrive')[0]}</span>
-            <span className="bg-gradient-to-r from-orange-400 via-orange-300 to-orange-400 bg-clip-text text-transparent">
-              empowered to thrive
-            </span>
+            {hero.headline.includes('empowered to thrive') ? (
+              <>
+                <span className="text-white">{hero.headline.split('empowered to thrive')[0]}</span>
+                <span className="bg-gradient-to-r from-orange-400 via-orange-300 to-orange-400 bg-clip-text text-transparent">
+                  empowered to thrive
+                </span>
+                <span className="text-white">{hero.headline.split('empowered to thrive')[1]}</span>
+              </>
+            ) : (
+              <span className="text-white">{hero.headline}</span>
+            )}
           </h1>
         </FadeIn>
 
