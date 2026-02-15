@@ -107,7 +107,7 @@ export default function LoginPage() {
 
           <div className="mt-8 pt-6 border-t border-gray-200 text-center">
             <p className="text-xs text-gray-400">
-              Powered by <span className="font-medium text-[#F27A21]">Partners 4 Prevention</span>
+              Powered by <span className="font-medium text-[#F27A21]">Total Success AI</span>
             </p>
           </div>
         </div>
