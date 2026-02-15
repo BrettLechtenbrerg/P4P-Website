@@ -96,15 +96,15 @@ export default function AIAssistPage() {
               </div>
             </div>
 
-            {/* Output */}
-            {output && (
-              <div className="bg-white rounded-xl border border-gray-200 p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-semibold text-gray-900">AI Output</h2>
+            {/* Output - Always visible */}
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold text-gray-900">AI Output</h2>
+                {output && (
                   <div className="flex items-center gap-2">
                     <button
                       onClick={copyOutput}
-                      className="flex items-center gap-2 px-3 py-1.5 text-sm border border-gray-200 rounded-lg hover:bg-gray-50"
+                      className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50"
                     >
                       {copied ? <Check size={14} className="text-green-600" /> : <Copy size={14} />}
                       {copied ? 'Copied!' : 'Copy'}
@@ -116,10 +116,12 @@ export default function AIAssistPage() {
                       Use as Input
                     </button>
                   </div>
-                </div>
-                <div className="p-4 bg-gray-50 rounded-lg whitespace-pre-wrap">{output}</div>
+                )}
               </div>
-            )}
+              <div className="p-4 bg-gray-50 rounded-lg whitespace-pre-wrap text-gray-900 min-h-[100px]">
+                {output || <span className="text-gray-400 italic">AI-generated content will appear here...</span>}
+              </div>
+            </div>
           </div>
 
           {/* Sidebar */}
