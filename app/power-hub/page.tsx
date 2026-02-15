@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { Eye, EyeOff, LogIn } from 'lucide-react';
 
 export default function LoginPage() {
@@ -32,9 +33,13 @@ export default function LoginPage() {
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <div className="w-20 h-20 bg-[#F27A21] rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">P4P</span>
-              </div>
+              <Image
+                src="/images/p4p-logo.png"
+                alt="Partners 4 Prevention"
+                width={100}
+                height={100}
+                className="rounded-xl"
+              />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">P4P Power Hub</h1>
             <p className="text-gray-500 mt-2">Content Management System</p>
