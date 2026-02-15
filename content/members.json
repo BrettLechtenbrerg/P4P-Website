@@ -14,7 +14,7 @@
       "address": "Salt Lake City, UT",
       "phone": "(385) 468-4100",
       "website": "slco.org/health",
-      "image": "/images/p4p-logo.png",
+      "image": "https://autaprcvep3wmic5.public.blob.vercel-storage.com/uploads/1771178018817-Screenshot_2026-01-27_at_5.25.26_AM_copy.png",
       "tier": "founding"
     },
     {
@@ -102,9 +102,15 @@
     }
   ],
   "tierInfo": {
-    "founding": { "label": "Founding Partner" },
-    "partner": { "label": "Partner" },
-    "supporter": { "label": "Supporter" }
+    "founding": {
+      "label": "Founding Partner"
+    },
+    "partner": {
+      "label": "Partner"
+    },
+    "supporter": {
+      "label": "Supporter"
+    }
   },
   "cta": {
     "title": "Want to Join the Coalition?",
