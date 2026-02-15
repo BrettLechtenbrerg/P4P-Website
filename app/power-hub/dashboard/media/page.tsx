@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback } from 'react';
 import Header from '@/components/power-hub/Header';
-import { Upload, Grid, List, Search, Trash2, Copy, Check, Loader2 } from 'lucide-react';
+import { Upload, Grid, List, Search, Trash2, Copy, Check, Loader2, AlertCircle } from 'lucide-react';
 
 interface MediaFile {
   id: string;
@@ -21,8 +21,11 @@ export default function MediaPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const [uploadError, setUploadError] = useState('');
+
   const handleFiles = useCallback(async (files: FileList) => {
     setUploading(true);
+    setUploadError('');
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
@@ -31,21 +34,36 @@ export default function MediaPage() {
         continue;
       }
 
-      const url = await new Promise<string>((resolve) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result as string);
-        reader.readAsDataURL(file);
-      });
+      try {
+        // Upload to Vercel Blob via API
+        const formData = new FormData();
+        formData.append('file', file);
 
-      const newFile: MediaFile = {
-        id: Date.now().toString() + '-' + i,
-        name: file.name,
-        url,
-        size: (file.size / 1024).toFixed(1) + ' KB',
-        uploaded: 'Just now',
-      };
+        const response = await fetch('/api/power-hub/upload', {
+          method: 'POST',
+          body: formData,
+        });
 
-      setMedia((prev) => [newFile, ...prev]);
+        const data = await response.json();
+
+        if (!response.ok) {
+          setUploadError(data.error || 'Upload failed');
+          continue;
+        }
+
+        const newFile: MediaFile = {
+          id: Date.now().toString() + '-' + i,
+          name: data.filename || file.name,
+          url: data.url,
+          size: (file.size / 1024).toFixed(1) + ' KB',
+          uploaded: 'Just now',
+        };
+
+        setMedia((prev) => [newFile, ...prev]);
+      } catch (error) {
+        console.error('Upload error:', error);
+        setUploadError('Failed to upload file. Check console for details.');
+      }
     }
 
     setUploading(false);
@@ -127,6 +145,17 @@ export default function MediaPage() {
             </div>
           </div>
         </div>
+
+        {/* Error Display */}
+        {uploadError && (
+          <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 mb-6">
+            <AlertCircle size={20} />
+            <div>
+              <p className="font-medium">Upload Error</p>
+              <p className="text-sm">{uploadError}</p>
+            </div>
+          </div>
+        )}
 
         {/* Drop Zone */}
         <div

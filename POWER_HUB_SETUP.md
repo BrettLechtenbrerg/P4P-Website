@@ -61,6 +61,8 @@ Add these to your Vercel project settings:
 | `GITHUB_OWNER` | Repository owner | Your GitHub username or org name |
 | `GITHUB_REPO` | Repository name | The repo name (e.g., "P4P-Website") |
 | `GITHUB_BRANCH` | Branch to commit to | Usually "main" |
+| `VERCEL_DEPLOY_HOOK` | Triggers rebuild after content save | Vercel → Project → Settings → Git → Deploy Hooks → Create |
+| `BLOB_READ_WRITE_TOKEN` | For image uploads (optional) | Vercel → Project → Storage → Blob → Create Store |
 
 ### Creating a GitHub Token
 
