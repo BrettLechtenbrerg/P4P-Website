@@ -1,0 +1,99 @@
+{
+  "header": {
+    "badge": "Legal",
+    "title": "Privacy Policy",
+    "description": "Your privacy is important to us. This policy explains how we collect, use, and protect your information."
+  },
+  "effectiveDate": "January 1, 2026",
+  "sections": [
+    {
+      "title": "1. Introduction",
+      "content": "Murray Partners 4 Prevention (\"P4P,\" \"we,\" \"us,\" or \"our\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (murrayp4p.com) or interact with our services."
+    },
+    {
+      "title": "2. Information We Collect",
+      "content": "We may collect personal information that you voluntarily provide to us when you fill out a contact form, sign up to volunteer, make a donation, subscribe to our newsletter, register for an event, or participate in surveys or promotions. This information may include your name, email address, phone number, mailing address, and any other information you choose to provide.",
+      "subsections": [
+        {
+          "title": "Personal Information",
+          "items": [
+            "Fill out a contact form",
+            "Sign up to volunteer",
+            "Make a donation",
+            "Subscribe to our newsletter",
+            "Register for an event",
+            "Participate in surveys or promotions"
+          ]
+        },
+        {
+          "title": "Automatically Collected Information",
+          "content": "When you visit our website, we may automatically collect certain information about your device, including your IP address, browser type, operating system, access times, and the pages you have viewed directly before and after accessing our website."
+        }
+      ]
+    },
+    {
+      "title": "3. How We Use Your Information",
+      "content": "We may use the information we collect for various purposes, including:",
+      "items": [
+        "Respond to your inquiries and fulfill your requests",
+        "Send you information about our programs, events, and initiatives",
+        "Process donations and provide tax receipts",
+        "Coordinate volunteer activities",
+        "Improve our website and services",
+        "Analyze trends and gather demographic information",
+        "Comply with legal obligations",
+        "Protect against fraudulent or illegal activity"
+      ]
+    },
+    {
+      "title": "4. Information Sharing",
+      "content": "We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:",
+      "items": [
+        "With Coalition Partners: We may share information with our coalition member organizations for collaborative programs and initiatives",
+        "Service Providers: We may share information with third-party vendors who perform services on our behalf",
+        "Legal Requirements: We may disclose information if required by law or in response to valid requests by public authorities",
+        "Protection of Rights: We may disclose information to protect our rights, privacy, safety, or property"
+      ]
+    },
+    {
+      "title": "5. Cookies and Tracking Technologies",
+      "content": "Our website may use cookies and similar tracking technologies to enhance your experience. Cookies are small data files stored on your device that help us understand how you use our website. You can control cookies through your browser settings, but disabling cookies may affect certain features of our website."
+    },
+    {
+      "title": "6. Data Security",
+      "content": "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security."
+    },
+    {
+      "title": "7. Your Rights and Choices",
+      "content": "You have certain rights regarding your personal information:",
+      "items": [
+        "Access: You may request access to the personal information we hold about you",
+        "Correction: You may request that we correct inaccurate or incomplete information",
+        "Deletion: You may request that we delete your personal information, subject to certain exceptions",
+        "Opt-Out: You may opt out of receiving promotional communications from us by following the unsubscribe instructions in those messages"
+      ],
+      "footer": "To exercise these rights, please contact us at director@murrayp4p.com."
+    },
+    {
+      "title": "8. Children's Privacy",
+      "content": "Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us so we can delete such information."
+    },
+    {
+      "title": "9. Third-Party Links",
+      "content": "Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party websites you visit."
+    },
+    {
+      "title": "10. Changes to This Privacy Policy",
+      "content": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Effective Date\" at the top. We encourage you to review this Privacy Policy periodically for any changes."
+    },
+    {
+      "title": "11. Contact Us",
+      "content": "If you have any questions about this Privacy Policy or our privacy practices, please contact us at:",
+      "contactInfo": {
+        "name": "Murray Partners 4 Prevention",
+        "email": "director@murrayp4p.com",
+        "website": "murrayp4p.com"
+      }
+    }
+  ]
+}

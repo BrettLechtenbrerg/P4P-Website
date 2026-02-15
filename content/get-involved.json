@@ -1,0 +1,67 @@
+{
+  "header": {
+    "badge": "Get Involved",
+    "title": "Make a Difference",
+    "description": "Join us in building a stronger, safer Murray. There are many ways to contribute to our community.",
+    "backgroundImage": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80"
+  },
+  "opportunities": [
+    {
+      "id": "volunteer",
+      "icon": "HandHeart",
+      "title": "Volunteer",
+      "description": "Give your time and talents to support community programs and events.",
+      "details": [
+        "Help organize community events",
+        "Mentor youth in leadership programs",
+        "Assist with outreach and education",
+        "Support administrative tasks"
+      ],
+      "cta": "Become a Volunteer"
+    },
+    {
+      "id": "donate",
+      "icon": "Heart",
+      "title": "Donate",
+      "description": "Your financial support helps us expand our programs and reach more residents.",
+      "details": [
+        "Fund youth development programs",
+        "Support family resource initiatives",
+        "Enable community health events",
+        "Expand prevention education"
+      ],
+      "cta": "Make a Donation"
+    },
+    {
+      "id": "partner",
+      "icon": "Building2",
+      "title": "Partner With Us",
+      "description": "Organizations and businesses can join our coalition to make a bigger impact.",
+      "details": [
+        "Join our coalition meetings",
+        "Co-sponsor community events",
+        "Provide resources and expertise",
+        "Collaborate on prevention initiatives"
+      ],
+      "cta": "Become a Partner"
+    }
+  ],
+  "impactStats": {
+    "title": "Your Impact",
+    "description": "Every contribution makes a difference in our community.",
+    "stats": [
+      { "number": "1000+", "label": "Residents Served" },
+      { "number": "50+", "label": "Active Volunteers" },
+      { "number": "9", "label": "Partner Organizations" },
+      { "number": "20+", "label": "Annual Programs" }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "description": "Contact us today to learn more about how you can contribute to Murray Partners 4 Prevention.",
+    "primaryButtonText": "Contact Us",
+    "primaryButtonLink": "/contact",
+    "secondaryButtonText": "Learn About Us",
+    "secondaryButtonLink": "/about"
+  }
+}

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import PageHeader from '@/components/PageHeader';
 import Footer from '@/components/Footer';
 import FadeIn from '@/components/animations/FadeIn';
+import membersContent from '@/content/members.json';
 
 // Member organization type definition
 interface Member {
@@ -22,114 +23,6 @@ interface Member {
   tier: 'founding' | 'partner' | 'supporter';
 }
 
-// Coalition member organizations - PLACEHOLDER DATA
-// Replace with actual member data from screenshots
-const members: Member[] = [
-  // FOUNDING PARTNERS (Core coalition members)
-  {
-    id: 1,
-    name: 'Salt Lake County Health Department',
-    category: 'Healthcare',
-    description: 'Offering a long list of programs including tobacco prevention, STD clinic, food protection, and community health initiatives.',
-    address: 'Salt Lake City, UT',
-    phone: '(385) 468-4100',
-    website: 'slco.org/health',
-    image: '/images/p4p-logo.png',
-    tier: 'founding',
-  },
-  {
-    id: 2,
-    name: 'Intermountain Medical Center',
-    category: 'Healthcare',
-    description: 'Providing advanced medical care in a friendly and supportive environment for the Murray community.',
-    address: '5121 Cottonwood Street, Murray, UT 84107',
-    phone: '(801) 507-7000',
-    website: 'intermountainhealthcare.org',
-    image: '/images/p4p-logo.png',
-    tier: 'founding',
-  },
-  {
-    id: 3,
-    name: 'Murray School District',
-    category: 'Education',
-    description: 'Dedicated to cultivating a safe, supportive, and inspiring environment where every student is empowered to succeed.',
-    address: '5440 S. State Street, Murray, UT 84107',
-    phone: '(801) 288-1131',
-    website: 'murrayschools.org',
-    image: '/images/p4p-logo.png',
-    tier: 'founding',
-  },
-  {
-    id: 4,
-    name: 'Murray City',
-    category: 'Government',
-    description: 'Dedicated to preserving our rich history while building a vibrant, connected, and forward-thinking community.',
-    address: '10 East 4800 South, Murray, UT 84107',
-    phone: '(801) 270-2429',
-    website: 'murray.utah.gov',
-    image: '/images/p4p-logo.png',
-    tier: 'founding',
-  },
-  {
-    id: 5,
-    name: 'Select Health',
-    category: 'Healthcare',
-    description: 'Offer plans to serve all members of our community from individuals and families to employers.',
-    address: '5381 Green Street, Murray, UT 84123',
-    phone: '(801) 442-7955',
-    website: 'selecthealth.org',
-    image: '/images/p4p-logo.png',
-    tier: 'founding',
-  },
-
-  // PARTNERS
-  {
-    id: 6,
-    name: 'Murray Chamber of Commerce',
-    category: 'Business',
-    description: 'Empowering local businesses, fostering community connections, and driving economic growth in Murray.',
-    address: '141 E 5600 S Suite 300, Murray, UT 84107',
-    phone: '(801) 263-2632',
-    website: 'themurraychamber.com',
-    image: '/images/p4p-logo.png',
-    tier: 'partner',
-  },
-  {
-    id: 7,
-    name: 'Exchange Club',
-    category: 'Nonprofit',
-    description: 'Proudly dedicated to serving our community through Unity for Service and prevention of child abuse.',
-    website: 'exchangeclub.org',
-    image: '/images/p4p-logo.png',
-    tier: 'partner',
-  },
-  {
-    id: 8,
-    name: 'Murray Rotary',
-    category: 'Nonprofit',
-    description: 'Dedicated to serving our community through impactful projects, fellowship, and leadership development.',
-    website: 'rotary.org',
-    image: '/images/p4p-logo.png',
-    tier: 'partner',
-  },
-  {
-    id: 9,
-    name: 'Murray Youth Community Council',
-    category: 'Youth',
-    description: 'A union of student leaders and business partners who come together through networking, internships, and community service.',
-    address: '141 E 5600 S Suite 315, Murray, UT 84107',
-    phone: '(801) 808-0830',
-    image: '/images/p4p-logo.png',
-    tier: 'partner',
-  },
-
-  // SUPPORTERS - Placeholder for additional members
-  // Add more members here as needed from screenshots
-];
-
-// Get unique categories
-const allCategories = ['All Categories', ...Array.from(new Set(members.map(m => m.category))).sort()];
-
 // Tier display names and colors (P4P orange theme)
 const tierInfo = {
   founding: { label: 'Founding Partner', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-300', bgColor: 'bg-orange-500/20' },
@@ -138,12 +31,18 @@ const tierInfo = {
 };
 
 export default function MembersPage() {
+  const { header, members, cta } = membersContent;
+  const typedMembers = members as Member[];
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [selectedTier, setSelectedTier] = useState<'all' | 'founding' | 'partner' | 'supporter'>('all');
 
-  const filteredMembers = members.filter((member) => {
+  // Get unique categories
+  const allCategories = ['All Categories', ...Array.from(new Set(typedMembers.map(m => m.category))).sort()];
+
+  const filteredMembers = typedMembers.filter((member) => {
     const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       member.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
       member.description.toLowerCase().includes(searchTerm.toLowerCase());
@@ -161,13 +60,13 @@ export default function MembersPage() {
   return (
     <>
       <PageHeader
-        badge="Coalition Members"
-        title="Member Organizations"
-        description="Meet the dedicated organizations working together to build a stronger, safer Murray community."
+        badge={header.badge}
+        title={header.title}
+        description={header.description}
         breadcrumbs={[
           { label: 'Members' },
         ]}
-        backgroundImage="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=80"
+        backgroundImage={header.backgroundImage}
       />
 
       <section className="relative py-16 overflow-hidden">
@@ -243,7 +142,7 @@ export default function MembersPage() {
                     {tier === 'all' ? 'All Members' : tierInfo[tier]?.label}
                     {tier !== 'all' && (
                       <span className="ml-2 text-xs">
-                        ({members.filter(m => m.tier === tier).length})
+                        ({typedMembers.filter(m => m.tier === tier).length})
                       </span>
                     )}
                   </button>
@@ -254,7 +153,7 @@ export default function MembersPage() {
 
           {/* Results Count */}
           <p className="text-white/60 mb-6">
-            Showing {sortedMembers.length} of {members.length} organizations
+            Showing {sortedMembers.length} of {typedMembers.length} organizations
           </p>
 
           {/* Members Grid/List */}
@@ -360,17 +259,17 @@ export default function MembersPage() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <FadeIn direction="up">
             <div className="glass-strong rounded-3xl p-8 md:p-12 text-center">
-              <h2 className="text-3xl font-bold text-white">Want to Join the Coalition?</h2>
+              <h2 className="text-3xl font-bold text-white">{cta.title}</h2>
               <p className="mt-4 text-white/60 max-w-2xl mx-auto">
-                Organizations of all types are welcome to join Murray Partners 4 Prevention. Together, we can build a stronger, safer community.
+                {cta.description}
               </p>
               <motion.a
-                href="/contact"
+                href={cta.buttonLink}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 mt-8 btn-glow"
               >
-                Become a Member
+                {cta.buttonText}
               </motion.a>
             </div>
           </FadeIn>
