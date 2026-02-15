@@ -1,16 +1,15 @@
 'use client';
 
+import Header from '@/components/Header';
 import { ExternalLink, Github, Globe, Info } from 'lucide-react';
 
 export default function SettingsPage() {
   return (
-    <div className="p-6 lg:p-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
-        <p className="text-gray-600 mt-1">Site information and configuration</p>
-      </div>
+    <div>
+      <Header title="Settings" subtitle="Site information and configuration" />
 
+      <div className="p-8">
+        <div className="max-w-7xl mx-auto">
       {/* Site Info */}
       <div className="bg-white rounded-2xl border border-gray-200 mb-6">
         <div className="p-6 border-b border-gray-200">
@@ -129,8 +128,10 @@ export default function SettingsPage() {
 
       {/* Power Hub Info */}
       <div className="mt-8 text-center text-sm text-gray-500">
-        <p>Power Hub v1.0</p>
-        <p className="mt-1">Powered by Partners 4 Prevention</p>
+        <p>Power Hub v2.0</p>
+        <p className="mt-1">Full feature parity with TSAI Power Hub</p>
+      </div>
+        </div>
       </div>
     </div>
   );

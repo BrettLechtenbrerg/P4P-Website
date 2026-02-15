@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FileJson, Rocket, ExternalLink, Clock, Edit3 } from 'lucide-react';
+import Header from '@/components/Header';
+import { FileJson, Rocket, ExternalLink, Clock, Edit3, FileText, Image, Sparkles } from 'lucide-react';
 
 interface ContentFile {
   filename: string;
@@ -35,24 +36,55 @@ export default function PowerHubDashboardPage() {
   };
 
   return (
-    <div className="p-6 lg:p-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-600 mt-1">Welcome to your Power Hub</p>
-      </div>
+    <div>
+      <Header title="Dashboard" subtitle="Welcome to your Power Hub" />
 
-      {/* Quick Actions */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+      <div className="p-8">
+        <div className="max-w-7xl mx-auto">
+        {/* Quick Actions */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <Link
+          href="/power-hub/dashboard/pages"
+          className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
+        >
+          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-4 group-hover:bg-orange-500 transition-colors">
+            <FileText className="w-6 h-6 text-orange-600 group-hover:text-white transition-colors" />
+          </div>
+          <h3 className="font-semibold text-gray-900">Edit Pages</h3>
+          <p className="text-sm text-gray-500 mt-1">Visual page editor with sections</p>
+        </Link>
+
         <Link
           href="/power-hub/dashboard/content"
           className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
         >
-          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-4 group-hover:bg-orange-500 transition-colors">
-            <Edit3 className="w-6 h-6 text-orange-600 group-hover:text-white transition-colors" />
+          <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
+            <Edit3 className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
           </div>
-          <h3 className="font-semibold text-gray-900">Edit Content</h3>
-          <p className="text-sm text-gray-500 mt-1">Update your website text and images</p>
+          <h3 className="font-semibold text-gray-900">Edit JSON Content</h3>
+          <p className="text-sm text-gray-500 mt-1">Direct content file editing</p>
+        </Link>
+
+        <Link
+          href="/power-hub/dashboard/ai"
+          className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
+        >
+          <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-4 group-hover:bg-purple-500 transition-colors">
+            <Sparkles className="w-6 h-6 text-purple-600 group-hover:text-white transition-colors" />
+          </div>
+          <h3 className="font-semibold text-gray-900">AI Assist</h3>
+          <p className="text-sm text-gray-500 mt-1">Generate and improve content</p>
+        </Link>
+
+        <Link
+          href="/power-hub/dashboard/media"
+          className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
+        >
+          <div className="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center mb-4 group-hover:bg-pink-500 transition-colors">
+            <Image className="w-6 h-6 text-pink-600 group-hover:text-white transition-colors" />
+          </div>
+          <h3 className="font-semibold text-gray-900">Media Library</h3>
+          <p className="text-sm text-gray-500 mt-1">Upload and manage images</p>
         </Link>
 
         <a
@@ -61,8 +93,8 @@ export default function PowerHubDashboardPage() {
           rel="noopener noreferrer"
           className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group"
         >
-          <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
-            <ExternalLink className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
+          <div className="w-12 h-12 rounded-xl bg-cyan-100 flex items-center justify-center mb-4 group-hover:bg-cyan-500 transition-colors">
+            <ExternalLink className="w-6 h-6 text-cyan-600 group-hover:text-white transition-colors" />
           </div>
           <h3 className="font-semibold text-gray-900">View Live Site</h3>
           <p className="text-sm text-gray-500 mt-1">See your website as visitors see it</p>
@@ -120,6 +152,8 @@ export default function PowerHubDashboardPage() {
             ))}
           </div>
         )}
+        </div>
+        </div>
       </div>
     </div>
   );

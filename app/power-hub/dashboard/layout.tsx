@@ -6,6 +6,9 @@ import Link from 'next/link';
 import {
   LayoutDashboard,
   FileJson,
+  FileText,
+  Image,
+  Sparkles,
   Settings,
   LogOut,
   Menu,
@@ -15,7 +18,10 @@ import {
 
 const menuItems = [
   { name: 'Dashboard', href: '/power-hub/dashboard', icon: LayoutDashboard },
+  { name: 'Pages', href: '/power-hub/dashboard/pages', icon: FileText },
   { name: 'Content', href: '/power-hub/dashboard/content', icon: FileJson },
+  { name: 'Media', href: '/power-hub/dashboard/media', icon: Image },
+  { name: 'AI Assist', href: '/power-hub/dashboard/ai', icon: Sparkles },
   { name: 'Settings', href: '/power-hub/dashboard/settings', icon: Settings },
 ];
 

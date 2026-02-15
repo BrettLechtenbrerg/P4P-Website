@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Header from '@/components/Header';
 import { FileJson, Clock, Edit3, Rocket, Loader2, Check, AlertCircle } from 'lucide-react';
 
 interface ContentFile {
@@ -72,13 +73,13 @@ export default function ContentListPage() {
   };
 
   return (
-    <div className="p-6 lg:p-8">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">Content</h1>
-          <p className="text-gray-600 mt-1">Edit your website content</p>
-        </div>
+    <div>
+      <Header title="Content" subtitle="Edit your website content" />
+
+      <div className="p-8">
+        <div className="max-w-7xl mx-auto">
+      {/* Deploy Button */}
+      <div className="flex justify-end mb-6">
         <button
           onClick={handleDeploy}
           disabled={deploying}
@@ -161,6 +162,8 @@ export default function ContentListPage() {
             ))}
           </div>
         )}
+      </div>
+        </div>
       </div>
     </div>
   );

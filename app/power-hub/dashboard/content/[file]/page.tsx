@@ -2,6 +2,7 @@
 
 import { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
+import Header from '@/components/Header';
 import {
   ArrowLeft,
   Save,
@@ -300,21 +301,20 @@ export default function EditContentPage({
   };
 
   return (
-    <div className="p-6 lg:p-8">
-      {/* Header */}
+    <div>
+      <Header title={`Edit ${file}`} subtitle="Edit content for this page" />
+
+      <div className="p-8">
+        <div className="max-w-7xl mx-auto">
+      {/* Actions Bar */}
       <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => router.push('/power-hub/dashboard/content')}
-            className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900 capitalize">{file} Page</h1>
-            <p className="text-gray-600">Edit content for this page</p>
-          </div>
-        </div>
+        <button
+          onClick={() => router.push('/power-hub/dashboard/content')}
+          className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+        >
+          <ArrowLeft size={20} />
+          Back to Content
+        </button>
 
         <div className="flex items-center gap-3">
           <button
@@ -394,6 +394,8 @@ export default function EditContentPage({
           Content not found
         </div>
       )}
+        </div>
+      </div>
     </div>
   );
 }
