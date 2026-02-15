@@ -27,7 +27,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#EA580C] to-[#F97316] flex items-center justify-center p-4">
+    <div className="w-full h-full min-h-screen bg-gradient-to-br from-[#EA580C] to-[#F97316] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">
@@ -49,7 +49,7 @@ export default function LoginPage() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all text-gray-900"
                 placeholder="Enter your username"
                 required
               />
@@ -64,7 +64,7 @@ export default function LoginPage() {
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all pr-12"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#EA580C]/20 focus:border-[#EA580C] transition-all pr-12 text-gray-900"
                   placeholder="Enter your password"
                   required
                 />
@@ -105,6 +105,11 @@ export default function LoginPage() {
               Powered by <span className="font-medium text-[#EA580C]">Partners 4 Prevention</span>
             </p>
           </div>
+        </div>
+
+        {/* Demo credentials hint */}
+        <div className="mt-6 text-center text-white/80 text-sm">
+          <p>Demo: p4padmin / p4p2026</p>
         </div>
       </div>
     </div>

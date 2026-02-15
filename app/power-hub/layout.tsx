@@ -11,5 +11,12 @@ export default function PowerHubLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <div
+      className="fixed inset-0 bg-white overflow-auto"
+      style={{ zIndex: 9999 }}
+    >
+      {children}
+    </div>
+  );
 }
